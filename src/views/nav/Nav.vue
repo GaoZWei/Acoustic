@@ -3,14 +3,6 @@
         <a-layout-sider v-model:collapsed="collapsed" collapsible>
             <div class="logo">列车旋转部件故障智能检测系统</div>
             <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
-                <!-- <a-menu-item key="1">
-                    <pie-chart-outlined />
-                    <span>Option 1</span>
-                </a-menu-item>
-                <a-menu-item key="2">
-                    <desktop-outlined />
-                    <span>Option 2</span>
-                </a-menu-item> -->
                 <a-sub-menu key="sub1">
                     <template #title>
                         <span>
@@ -20,12 +12,9 @@
                     </template>
                     <a-menu-item key="1">部件添加</a-menu-item>
                     <a-menu-item key="2">属性配置</a-menu-item>
-                    <a-sub-menu key="sub3">
+                    <a-sub-menu key="sub1_1">
                         <template #title>
-                            <span>
-                                <!-- <user-outlined /> -->
-                                <span>实时检测</span>
-                            </span>
+                            <span>实时检测</span>
                         </template>
                         <a-menu-item key="3">参数检测法</a-menu-item>
                         <a-menu-item key="4">智能检测法</a-menu-item>
@@ -36,28 +25,44 @@
                 <a-sub-menu key="sub2">
                     <template #title>
                         <span>
-                            <team-outlined />
+                            <user-outlined />
                             <span>振动信号检测</span>
                         </span>
                     </template>
-                    <a-menu-item key="7">Team 1</a-menu-item>
-                    <a-menu-item key="8">Team 2</a-menu-item>
+                    <a-menu-item key="7">部件添加</a-menu-item>
+                    <a-menu-item key="8">属性配置</a-menu-item>
+                    <a-sub-menu key="sub2_2">
+                        <template #title>
+                            <span>实时检测</span>
+                        </template>
+                        <a-menu-item key="9">参数检测法</a-menu-item>
+                        <a-menu-item key="10">智能检测法</a-menu-item>
+                    </a-sub-menu>
+                    <a-menu-item key="11">检测结果分析</a-menu-item>
+                    <a-menu-item key="12">打印故障单</a-menu-item>
                 </a-sub-menu>
-                <a-menu-item key="9">
-                    <file-outlined />
-                    <span>File</span>
-                </a-menu-item>
+                <a-sub-menu key="sub3">
+                    <template #title>
+                        <span>
+                            <user-outlined />
+                            <span>信息服务</span>
+                        </span>
+                    </template>
+                    <a-menu-item key="13">时间范围查询</a-menu-item>
+                    <a-menu-item key="14">历史故障查询</a-menu-item>
+                    <a-menu-item key="15">检测方法障查询</a-menu-item>
+                </a-sub-menu>
             </a-menu>
         </a-layout-sider>
         <a-layout>
             <a-layout-header style="background: #fff; padding: 0" />
             <a-layout-content style="margin: 0 16px">
                 <a-breadcrumb style="margin: 16px 0">
-                    <a-breadcrumb-item>User</a-breadcrumb-item>
-                    <a-breadcrumb-item>Bill</a-breadcrumb-item>
+                    <a-breadcrumb-item>首页</a-breadcrumb-item>
+                    <a-breadcrumb-item>历史故障查询</a-breadcrumb-item>
                 </a-breadcrumb>
                 <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-                    Bill is a cat.
+                    <History_fault/>
                 </div>
             </a-layout-content>
             <a-layout-footer style="text-align: center">
@@ -74,10 +79,11 @@ import {
   //   MenuUnfoldOutlined,
   //   MenuFoldOutlined
 } from "@ant-design/icons-vue";
-
+import History_fault from "../table/History_fault";
 export default {
   components: {
-    UserOutlined
+    UserOutlined,
+    History_fault
     // VideoCameraOutlined,
     // UploadOutlined,
     // MenuUnfoldOutlined,
@@ -85,7 +91,7 @@ export default {
   },
   data() {
     return {
-      selectedKeys: ["sub1"],
+      selectedKeys: ["1"],
       collapsed: false
     };
   }

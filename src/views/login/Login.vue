@@ -37,7 +37,7 @@
             </a-col>
           </a-row>
           <a-button type="primary" @click="onSubmit" block>
-            登录
+            <router-link to="/">登录</router-link>
           </a-button>
         </a-form>
       </a-col>
@@ -103,7 +103,7 @@ export default {
   height: 10%;
 }
 #login_to_register {
-  height:15em;
+  height: 15em;
   margin-top: 2%;
   margin-bottom: 10%;
   margin-left: 57%;
