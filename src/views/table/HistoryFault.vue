@@ -1,9 +1,11 @@
 <template>
-  <a-table :columns="columns" :data-source="data">
-    <template #name="{text}">
-      <a>{{ text }}</a>
-    </template>
-  </a-table>
+  <div id="history_fault">
+    <a-table :columns="columns" :data-source="data">
+      <template #name="{text}">
+        <a>{{ text }}</a>
+      </template>
+    </a-table>
+  </div>
 </template>
 <script>
 const columns = [
@@ -83,3 +85,9 @@ export default {
   }
 };
 </script>
+
+<style>
+#history_fault {
+  margin-bottom: 5%;
+}
+</style>

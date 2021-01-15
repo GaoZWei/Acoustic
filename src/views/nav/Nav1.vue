@@ -1,5 +1,5 @@
 <template>
-    <!-- <a-layout id="components-layout-demo-side" style="min-height: 100vh"> -->
+    <a-layout id="components-layout-demo-side" style="min-height: 100vh">
         <a-layout-sider v-model:collapsed="collapsed">
             <!-- <a-layout id="components-layout-demo-custom-trigger">
         <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible> -->
@@ -56,19 +56,60 @@
                 </a-sub-menu>
             </a-menu>
         </a-layout-sider>
-    <!-- </a-layout> -->
+        <!-- <a-layout style="background: #fff; padding: 0">
+            <a-layout-header style="background: #fff; padding: 0" />
+            <a-layout-content style="margin: 0 16px">
+                <a-breadcrumb style="margin: 16px 0">
+                    <a-breadcrumb-item>首页</a-breadcrumb-item>
+                    <a-breadcrumb-item>历史故障查询</a-breadcrumb-item>
+                </a-breadcrumb>
+                <HistoryFaultSearch/>
+                <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+                    <HistoryFault/>
+                </div>
+            </a-layout-content>
+            <a-layout-footer style="text-align: center">
+                Ant Design ©2018 Created by Ant UED
+            </a-layout-footer>
+        </a-layout> -->
+
+        <a-layout>
+            <a-layout-header style="background: #fff; padding: 0">
+                <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
+                <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+            </a-layout-header>
+            <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
+                <a-breadcrumb style="margin: 16px 0">
+                    <a-breadcrumb-item>首页</a-breadcrumb-item>
+                    <a-breadcrumb-item>历史故障查询</a-breadcrumb-item>
+                </a-breadcrumb>
+                <HistoryFaultSearch/>
+                <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+                    <HistoryFault/>
+                </div>
+            </a-layout-content>
+        </a-layout>
+    </a-layout>
 </template>
 <script>
 import {
   UserOutlined,
-//   MenuUnfoldOutlined,
-//   MenuFoldOutlined
+  //   VideoCameraOutlined,
+  //   UploadOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined
 } from "@ant-design/icons-vue";
+import HistoryFault from "../table/HistoryFault";
+import HistoryFaultSearch from "../table/HistoryFaultSearch";
 export default {
   components: {
     UserOutlined,
-    // MenuUnfoldOutlined,
-    // MenuFoldOutlined,
+    HistoryFault,
+    HistoryFaultSearch,
+    // VideoCameraOutlined,
+    // UploadOutlined,
+    MenuUnfoldOutlined,
+    MenuFoldOutlined
   },
   data() {
     return {

@@ -13,7 +13,7 @@
             <a-button>新增</a-button>
           </template>
         </a-input-search>
-        <h2 class="title">待办事项<Login/></h2>
+        <h2 class="title">待办事项</h2>
         <a-card :title="`${index + 1}、${item.time}`" v-for="(item, index) in todos" :key="item.id">
           <template v-slot:extra>
             <a-switch v-model:checked="item.done" @change="handleCheck(item, true)" />
@@ -34,10 +34,10 @@
 
 <script>
 import { ref, reactive, computed } from "vue";
-import Login from "./login/Login.vue";
+// import Login from "./login/Login.vue";
 export default {
   components: {
-    Login
+    // Login
   },
   setup() {
     const todo = ref("");
