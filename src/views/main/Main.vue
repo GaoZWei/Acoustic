@@ -12,17 +12,26 @@
               <span>声发射信号检测</span>
             </span>
           </template>
-          <a-menu-item key="1">部件添加</a-menu-item>
-          <a-menu-item key="2">属性配置</a-menu-item>
+          <a-menu-item key="1">
+            <router-link to="/voice_component_add">部件添加</router-link>
+          </a-menu-item>
+          <a-menu-item key="2">
+            <router-link to="/voice_attribute_config">属性配置</router-link>
+          </a-menu-item>
           <a-sub-menu key="sub1_1" @titleClick="titleClick">
             <template #title>
               <span>实时检测</span>
             </template>
-            <a-menu-item key="3">参数检测法</a-menu-item>
-            <a-menu-item key="4">智能检测法</a-menu-item>
+            <a-menu-item key="3">
+              <router-link to="/voice_param_detect">参数检测法</router-link>
+            </a-menu-item>
+            <a-menu-item key="4">
+              <router-link to="/voice_intelligence_detect">智能检测法</router-link></a-menu-item>
           </a-sub-menu>
-          <a-menu-item key="5">检测结果分析</a-menu-item>
-          <a-menu-item key="6">打印故障单</a-menu-item>
+          <a-menu-item key="5">
+            <router-link to="/voice_detect_result_analysis">检测结果分析</router-link></a-menu-item>
+          <a-menu-item key="6">
+            <router-link to="/voice_fault_print">打印故障单</router-link></a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="sub2" @titleClick="titleClick">
           <template #title>
@@ -31,17 +40,23 @@
               <span>振动信号检测</span>
             </span>
           </template>
-          <a-menu-item key="7">部件添加</a-menu-item>
-          <a-menu-item key="8">属性配置</a-menu-item>
+          <a-menu-item key="7">
+            <router-link to="/vibration_component_add">部件添加</router-link></a-menu-item>
+          <a-menu-item key="8">
+            <router-link to="/vibration_attribute_config">属性配置</router-link></a-menu-item>
           <a-sub-menu key="sub2_2" @titleClick="titleClick">
             <template #title>
               <span>实时检测</span>
             </template>
-            <a-menu-item key="9">参数检测法</a-menu-item>
-            <a-menu-item key="10">智能检测法</a-menu-item>
+            <a-menu-item key="9">
+              <router-link to="/vibration_time_frequent">时频检测法</router-link></a-menu-item>
+            <a-menu-item key="10">
+              <router-link to="/vibration_intelligence_detect">智能检测法</router-link></a-menu-item>
           </a-sub-menu>
-          <a-menu-item key="11">检测结果分析</a-menu-item>
-          <a-menu-item key="12">打印故障单</a-menu-item>
+          <a-menu-item key="11">
+            <router-link to="/vibration_detect_result">检测结果分析</router-link></a-menu-item>
+          <a-menu-item key="12">
+            <router-link to="/vibration_fault_print">打印故障单</router-link></a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="sub3" @titleClick="titleClick">
           <template #title>
@@ -56,7 +71,8 @@
           <a-menu-item key="14">
             <router-link to="/history_fault">历史故障查询</router-link>
           </a-menu-item>
-          <a-menu-item key="15">检测方法查询</a-menu-item>
+          <a-menu-item key="15">
+            <router-link to="/query_method_analysis">检测方法查询</router-link></a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
@@ -136,6 +152,9 @@ export default {
 </script>
 
 <style>
+#components-layout-demo-custom-trigger {
+  height: 50em;
+}
 #components-layout-demo-custom-trigger .logo {
   /* height: 6%; */
   /* width:100%; */
