@@ -1,0 +1,4 @@
+<template>
+    
+    VibrationAttributeConfig
+</template>

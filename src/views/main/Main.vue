@@ -26,12 +26,15 @@
               <router-link to="/voice_param_detect">参数检测法</router-link>
             </a-menu-item>
             <a-menu-item key="4">
-              <router-link to="/voice_intelligence_detect">智能检测法</router-link></a-menu-item>
+              <router-link to="/voice_intelligence_detect">智能检测法</router-link>
+            </a-menu-item>
           </a-sub-menu>
           <a-menu-item key="5">
-            <router-link to="/voice_detect_result_analysis">检测结果分析</router-link></a-menu-item>
+            <router-link to="/voice_detect_result_analysis">检测结果分析</router-link>
+          </a-menu-item>
           <a-menu-item key="6">
-            <router-link to="/voice_fault_print">打印故障单</router-link></a-menu-item>
+            <router-link to="/voice_fault_print">打印故障单</router-link>
+          </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="sub2" @titleClick="titleClick">
           <template #title>
@@ -41,22 +44,28 @@
             </span>
           </template>
           <a-menu-item key="7">
-            <router-link to="/vibration_component_add">部件添加</router-link></a-menu-item>
+            <router-link to="/vibration_component_add">部件添加</router-link>
+          </a-menu-item>
           <a-menu-item key="8">
-            <router-link to="/vibration_attribute_config">属性配置</router-link></a-menu-item>
+            <router-link to="/vibration_attribute_config">属性配置</router-link>
+          </a-menu-item>
           <a-sub-menu key="sub2_2" @titleClick="titleClick">
             <template #title>
               <span>实时检测</span>
             </template>
             <a-menu-item key="9">
-              <router-link to="/vibration_time_frequent">时频检测法</router-link></a-menu-item>
+              <router-link to="/vibration_time_frequent_detect">时频检测法</router-link>
+            </a-menu-item>
             <a-menu-item key="10">
-              <router-link to="/vibration_intelligence_detect">智能检测法</router-link></a-menu-item>
+              <router-link to="/vibration_intelligence_detect">智能检测法</router-link>
+            </a-menu-item>
           </a-sub-menu>
           <a-menu-item key="11">
-            <router-link to="/vibration_detect_result">检测结果分析</router-link></a-menu-item>
+            <router-link to="/vibration_detect_result">检测结果分析</router-link>
+          </a-menu-item>
           <a-menu-item key="12">
-            <router-link to="/vibration_fault_print">打印故障单</router-link></a-menu-item>
+            <router-link to="/vibration_fault_print">打印故障单</router-link>
+          </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="sub3" @titleClick="titleClick">
           <template #title>
@@ -72,7 +81,8 @@
             <router-link to="/history_fault">历史故障查询</router-link>
           </a-menu-item>
           <a-menu-item key="15">
-            <router-link to="/query_method_analysis">检测方法查询</router-link></a-menu-item>
+            <router-link to="/query_method_analysis">检测方法查询</router-link>
+          </a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
@@ -102,14 +112,10 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined
 } from "@ant-design/icons-vue";
-// import HistoryFault from "../table/HistoryFault";
-// import HistoryFaultSearch from "../table/HistoryFaultSearch";
 export default {
   components: {
     UserOutlined,
     SolutionOutlined,
-    // HistoryFault,
-    // HistoryFaultSearch,
     MenuUnfoldOutlined,
     MenuFoldOutlined
   },

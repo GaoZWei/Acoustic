@@ -1,0 +1,3 @@
+<template>
+    VibrationFault
+</template>
