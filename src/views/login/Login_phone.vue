@@ -17,18 +17,23 @@
         <a-form :model="form" :label-col="labelCol" :wrapper-col="wrapperCol">
           <!-- <a-form-item label="账号"> -->
           <a-form-item>
-            <a-input v-model:value="form.name" placeholder="账户">
+            <a-input placeholder="手机号" v-model:value="form.phone_number" ref="userNameInput">
               <template #prefix>
-                <UserOutlined />
+                <MobileOutlined />
               </template>
             </a-input>
           </a-form-item>
-          <a-form-item block>
-            <a-input-password v-model:value="form.password" placeholder="密码" >
-                <template #prefix>
-                <LockOutlined/>
-              </template>
-            </a-input-password>
+          <a-form-item>
+            <a-row>
+              <a-col :span="14">
+                <a-input v-model:value="form.password" placeholder="验证码" /></a-col>
+              <a-col :span="2"></a-col>
+              <a-col :span="8">
+                <a-button @click="onSubmit" block class="get_phone_code">
+                  <router-link to="/">获取验证码</router-link>
+                </a-button>
+              </a-col>
+            </a-row>
           </a-form-item>
           <a-row>
             <a-col :span="8">
@@ -59,20 +64,19 @@
   </div>
 </template>
 <script>
-import { UserOutlined,LockOutlined } from "@ant-design/icons-vue";
+import { MobileOutlined } from "@ant-design/icons-vue";
 export default {
   name: "Login",
   components: {
-    UserOutlined,
-    LockOutlined
+    MobileOutlined
   },
   data() {
     return {
-      current: ["mail"],
+      current: ["phone"],
       labelCol: { span: 12 },
       wrapperCol: { span: 24 },
       form: {
-        name: "",
+        phone_number: "",
         password: ""
       }
     };
