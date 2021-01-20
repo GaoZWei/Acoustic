@@ -47,14 +47,14 @@
                         </a-col>
                     </a-row>
                     <a-row>
-                        <a-col :span="8">
+                        <a-col :span="9">
                             <a-form-item>
                                 <a-button type="primary" @click="onSubmit" block>
                                     <router-link to="/">注册</router-link>
                                 </a-button>
                             </a-form-item>
                         </a-col>
-                        <a-col :span="7"></a-col>
+                        <a-col :span="6"></a-col>
                         <a-col :span="9">
                             <div class="block_item_register"></div>
                             <a href="/login">使用已有账户登录</a>

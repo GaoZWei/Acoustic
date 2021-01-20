@@ -26,7 +26,12 @@
           <a-form-item>
             <a-row>
               <a-col :span="14">
-                <a-input v-model:value="form.password" placeholder="验证码" /></a-col>
+                <a-input v-model:value="form.password" placeholder="验证码">
+                  <template #prefix>
+                    <icon-font type="icon-check-item" />
+                  </template>
+                </a-input>
+              </a-col>
               <a-col :span="2"></a-col>
               <a-col :span="8">
                 <a-button @click="onSubmit" block class="get_phone_code">
@@ -65,10 +70,15 @@
 </template>
 <script>
 import { MobileOutlined } from "@ant-design/icons-vue";
+import { createFromIconfontCN } from "@ant-design/icons-vue";
+const IconFont = createFromIconfontCN({
+  scriptUrl: "//at.alicdn.com/t/font_2337538_sgzqajq76d.js"
+});
 export default {
   name: "Login",
   components: {
-    MobileOutlined
+    MobileOutlined,
+    IconFont
   },
   data() {
     return {

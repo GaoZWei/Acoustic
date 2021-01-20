@@ -19,7 +19,7 @@ import VibrationTimeFrequentDetect from "../views/components/Vibration/Vibration
 import VibrationIntelligenceDetect from "../views/components/Vibration/VibrationIntelligenceDetect.vue"
 import VibrationDetectResult from "../views/components/Vibration/VibrationDetectResult.vue"
 import VibrationFaultPrint from "../views/components/Vibration/VibrationFaultPrint.vue"
-import TimeScope from '../views/components/InformationService/TimeScopeSearch.vue'
+import TimeScope from '../views/components/InformationService/TimeScope.vue'
 import HistoryFault from '../views/components/InformationService/HistoryFault.vue'
 import QueryMethodAnalysis from '../views/components/InformationService/QueryMethodAnalysis.vue'
 

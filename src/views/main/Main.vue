@@ -91,7 +91,7 @@
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
-      <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
+      <a-layout-content :style="{ padding: '3%', background: '#fff',minHeight: '280px' ,borderTop:'1px solid rgb(210,210,210)'}">
         <!-- <a-breadcrumb style="margin: 16px 0">
           <a-breadcrumb-item>首页</a-breadcrumb-item>
           <a-breadcrumb-item>历史故障查询</a-breadcrumb-item>
@@ -158,9 +158,9 @@ export default {
 </script>
 
 <style>
-#components-layout-demo-custom-trigger {
-  height: 50em;
-}
+/* #components-layout-demo-custom-trigger {
+  height: auto;
+} */
 #components-layout-demo-custom-trigger .logo {
   /* height: 6%; */
   /* width:100%; */

@@ -88,6 +88,7 @@ export default {
 
 <style>
 #history_fault {
+  margin-top: 2%;
   margin-bottom: 5%;
 }
 </style>

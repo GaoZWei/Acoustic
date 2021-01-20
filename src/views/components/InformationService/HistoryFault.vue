@@ -1,5 +1,8 @@
 <template>
   <HistoryFaultSearch/>
+  <h1>
+    历史故障信息
+  </h1>
   <HistoryFaultTable/>
 </template>
 
