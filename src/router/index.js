@@ -21,7 +21,7 @@ import VibrationDetectResult from "../views/components/Vibration/VibrationDetect
 import VibrationFaultPrint from "../views/components/Vibration/VibrationFaultPrint.vue"
 import TimeScope from '../views/components/InformationService/TimeScope.vue'
 import HistoryFault from '../views/components/InformationService/HistoryFault.vue'
-import QueryMethodAnalysis from '../views/components/InformationService/QueryMethodAnalysis.vue'
+import QueryMethod from '../views/components/InformationService/QueryMethod.vue'
 
 export default createRouter({
   // history: createWebHashHistory(),
@@ -121,9 +121,9 @@ export default createRouter({
         },
 
         {
-          path: "query_method_analysis",
-          name: "query_method_analysis",
-          component: QueryMethodAnalysis
+          path: "query_method",
+          name: "query_method",
+          component: QueryMethod
         },
 
       ]

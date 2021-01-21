@@ -4,6 +4,12 @@
       <template #name="{text}">
         <a>{{ text }}</a>
       </template>
+      <template #action="{record}">
+        <span>
+          {{record.detect_way}}
+          <a>打印故障单</a>
+        </span>
+      </template>
     </a-table>
   </div>
 </template>
@@ -12,67 +18,59 @@ const columns = [
   {
     title: "故障时间",
     dataIndex: "fault_time",
-    key: "name",
-    slots: { customRender: "name" }
+    key: "fault_time",
+    slots: { customRender: "fault_time" }
   },
   {
     title: "信号类型",
     dataIndex: "signal_type",
-    key: "age",
-    width: 80
+    key: "signal_type"
   },
   {
     title: "检测方式",
     dataIndex: "detect_way",
-    key: "address 1",
-    ellipsis: true
+    key: "detect_way"
   },
   {
     title: "使用时长",
     dataIndex: "use_time",
-    key: "use_time",
-    ellipsis: true
+    key: "use_time"
   },
   {
-    title: "操作",
-    dataIndex: "operate",
-    key: "address 2",
-    ellipsis: true
+    title: "Action",
+    key: "action",
+    slots: { customRender: "action" }
   }
 ];
 
 const data = [
   {
     key: "1",
-    fault_time: "2017-10-01  14:10",
+    fault_time: "2020-10-01  14:10",
     signal_type: "声信号",
     detect_way: "DBN神经网络检测方式",
-    use_time: "5mins",
-    tags: ["nice", "developer"]
+    use_time: "5mins"
   },
   {
     key: "2",
-    fault_time: "2017-10-01  14:10",
+    fault_time: "2018-10-01  14:10",
     signal_type: "声信号",
     detect_way: "LSTM神经网络检测方式",
-    use_time: "5mins",
-    tags: ["loser"]
+    use_time: "5mins"
   },
   {
     key: "3",
     fault_time: "2017-10-01  14:10",
     signal_type: "声信号",
     detect_way: "DBN神经网络检测方式",
-    use_time: "5mins",
-    tags: ["cool", "teacher"]
+    use_time: "5mins"
   },
   {
     key: "4",
     fault_time: "2017-10-01  14:10",
     signal_type: "声信号",
     detect_way: "LSTM神经网络检测方式",
-    use_time: "5mins",
-    tags: ["cool", "teacher"]
+    use_time: "5mins"
   }
 ];
 

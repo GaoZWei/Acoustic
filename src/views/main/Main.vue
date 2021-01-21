@@ -81,7 +81,7 @@
             <router-link to="/history_fault">历史故障查询</router-link>
           </a-menu-item>
           <a-menu-item key="15">
-            <router-link to="/query_method_analysis">检测方法查询</router-link>
+            <router-link to="/query_method">检测方法查询</router-link>
           </a-menu-item>
         </a-sub-menu>
       </a-menu>
