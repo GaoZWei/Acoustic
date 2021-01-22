@@ -47,82 +47,127 @@ export default createRouter({
       children: [{
           path: "voice_component_add",
           name: "voice_component_add",
+          meta: {
+            title: '部件添加'
+          },
           component: VoiceComponentAdd
         },
         {
           path: "voice_attribute_config",
           name: "voice_attribute_config",
+          meta: {
+            title: '属性配置'
+          },
           component: VoiceAttributeConfig
         },
         {
           path: "voice_param_detect",
           name: "voice_param_detect",
+          meta: {
+            title: '参数检测'
+          },
           component: VoiceParamDetect
         },
         {
           path: "voice_intelligence_detect",
           name: "voice_intelligence_detect",
+          meta: {
+            title: '智能检测'
+          },
           component: VoiceIntelligenceDetect
         },
 
         {
           path: "voice_detect_result_analysis",
           name: "voice_detect_result_analysis",
+          meta: {
+            title: '检测结果分析'
+          },
           component: VoiceDetectResultAnalysis
         },
 
         {
           path: "voice_fault_print",
           name: "voice_fault_print",
+          meta: {
+            title: '打印故障单'
+          },
           component: VoiceFaultPrint
         },
         {
           path: "vibration_component_add",
           name: "vibration_component_add",
+          meta: {
+            title: '部件添加'
+          },
           component: VibrationComponentAdd
         },
         {
           path: "vibration_attribute_config",
           name: "vibration_attribute_config",
+          meta: {
+            title: '属性配置'
+          },
           component: VibrationAttributeConfig
         },
         {
           path: "vibration_time_frequent_detect",
           name: "vibration_time_frequent_detect",
+          meta: {
+            title: '时频检测'
+          },
           component: VibrationTimeFrequentDetect
         },
         {
           path: "vibration_intelligence_detect",
           name: "vibration_intelligence_detect",
+          meta: {
+            title: '智能检测'
+          },
           component: VibrationIntelligenceDetect
         },
         {
           path: "vibration_detect_result",
           name: "vibration_detect_result",
+          meta: {
+            title: '检测结果'
+          },
           component: VibrationDetectResult
         },
 
         {
           path: "vibration_fault_print",
           name: "vibration_fault_print",
+          meta: {
+            title: '打印故障单'
+          },
           component: VibrationFaultPrint
         },
 
         {
           path: "time_scope",
           name: "time_scope",
+          meta: {
+            title: '时间范围搜索'
+          },
           component: TimeScope
         },
 
         {
           path: "history_fault",
           name: "history_fault",
+          meta: {
+            title: '历史故障查询'
+          },
           component: HistoryFault
         },
 
         {
           path: "query_method",
           name: "query_method",
+          meta: {
+            title: '检测方法查询'
+          },
           component: QueryMethod
         },
 

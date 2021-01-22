@@ -1,8 +1,5 @@
 <template>
-  <a-breadcrumb style="margin: 0 0 2% 0">
-    <a-breadcrumb-item>首页</a-breadcrumb-item>
-    <a-breadcrumb-item>时间范围搜索</a-breadcrumb-item>
-  </a-breadcrumb>
+  <Breadcrumb/>
   <h1>时间范围搜索</h1>
   <div id="time_scope_search">
     <a-row>
@@ -21,7 +18,11 @@
 </template>
 
 <script>
+import Breadcrumb from "../Common/Breadcrumb.vue";
 export default {
+  components: {
+    Breadcrumb
+  },
   data() {
     return {
       value: "",

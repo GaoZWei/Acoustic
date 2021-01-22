@@ -1,17 +1,16 @@
 <template>
-  <a-breadcrumb style="margin: 0 0 2% 0">
-    <a-breadcrumb-item>首页</a-breadcrumb-item>
-    <a-breadcrumb-item>部件添加</a-breadcrumb-item>
-  </a-breadcrumb>
+  <Breadcrumb/>
   <h1>添加部件</h1>
   <div class="line"></div>
   <VoiceComponentAddForm/>
 </template>
 
 <script>
+import Breadcrumb from "../Common/Breadcrumb.vue";
 import VoiceComponentAddForm from "./VoiceComponentAddForm.vue";
 export default {
   components: {
+    Breadcrumb,
     VoiceComponentAddForm
   }
 };
