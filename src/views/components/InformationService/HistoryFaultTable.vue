@@ -37,7 +37,7 @@ const columns = [
     key: "use_time"
   },
   {
-    title: "Action",
+    title: "操作",
     key: "action",
     slots: { customRender: "action" }
   }
