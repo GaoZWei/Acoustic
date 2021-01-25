@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data" @change="onChange">
+  <a-table :columns="columns" :data-source="data" @change="onChange" class="voice_attribute_config_table">
     <template #action="{record}">
       <span>
         {{record.key}}
@@ -49,14 +49,6 @@ const columns = [
         text: "关闭",
         value: "关闭"
       },
-      //  {
-      //   text: "故障",
-      //   value: "故障"
-      // },
-      // {
-      //   text: "关闭",
-      //   value: "关闭"
-      // },
       {
         text: "故障",
         value: "故障",
@@ -161,3 +153,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.voice_attribute_config_table {
+  margin-top: 2%;
+}
+</style>
+
