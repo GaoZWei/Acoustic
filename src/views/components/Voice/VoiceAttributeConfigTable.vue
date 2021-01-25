@@ -3,7 +3,7 @@
     <template #action="{record}">
       <span>
         {{record.key}}
-        <a>修改</a>
+        <router-link to="voice_attribute_config_detail">修改</router-link>
         <a-divider type="vertical" />
         <a>停止检测</a>
       </span>

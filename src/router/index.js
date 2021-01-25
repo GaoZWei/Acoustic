@@ -9,6 +9,7 @@ import Register from "../views/components/Common/Register.vue"
 import Main from '../views/main/Main.vue'
 import VoiceComponentAdd from '../views/components/Voice/VoiceComponentAdd.vue'
 import VoiceAttributeConfig from '../views/components/Voice/VoiceAttributeConfig.vue'
+import VoiceAttributeConfigDetail from "../views/components/Voice/VoiceAttributeConfigDetail.vue"
 import VoiceParamDetect from "../views/components/Voice/VoiceParamDetect.vue"
 import VoiceIntelligenceDetect from "../views/components/Voice/VoiceIntelligenceDetect.vue"
 import VoiceDetectResultAnalysis from "../views/components/Voice/VoiceDetectResultAnalysis.vue"
@@ -59,6 +60,14 @@ export default createRouter({
             title: '属性配置'
           },
           component: VoiceAttributeConfig
+        },
+        {
+          path: "voice_attribute_config_detail",
+          name: "voice_attribute_config_detail",
+          meta: {
+            title: '部件配置'
+          },
+          component: VoiceAttributeConfigDetail
         },
         {
           path: "voice_param_detect",
