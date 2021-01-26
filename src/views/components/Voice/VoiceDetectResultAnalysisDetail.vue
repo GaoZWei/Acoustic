@@ -27,10 +27,11 @@
           停止检测
         </a-button>&nbsp;&nbsp;&nbsp;
         <a-button type="primary">
-          打印故障单
+          <router-link to="/voice_fault_print">
+            打印故障单
+          </router-link>
         </a-button>
       </a-col>
-
     </a-row>
   </div>
   <div class="voice_detect_result_detail_table">
