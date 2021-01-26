@@ -13,6 +13,7 @@ import VoiceAttributeConfigDetail from "../views/components/Voice/VoiceAttribute
 import VoiceParamDetect from "../views/components/Voice/VoiceParamDetect.vue"
 import VoiceIntelligenceDetect from "../views/components/Voice/VoiceIntelligenceDetect.vue"
 import VoiceDetectResultAnalysis from "../views/components/Voice/VoiceDetectResultAnalysis.vue"
+import VoiceDetectResultAnalysisDetail from "../views/components/Voice/VoiceDetectResultAnalysisDetail.vue"
 import VoiceFaultPrint from "../views/components/Voice/VoiceFaultPrint.vue"
 import VibrationComponentAdd from '../views/components/Vibration/VibrationComponentAdd.vue'
 import VibrationAttributeConfig from '../views/components/Vibration/VibrationAttributeConfig.vue'
@@ -94,7 +95,14 @@ export default createRouter({
           },
           component: VoiceDetectResultAnalysis
         },
-
+        {
+          path: "voice_detect_result_analysis_detail",
+          name: "voice_detect_result_analysis_detail",
+          meta: {
+            title: '实时轴承分析'
+          },
+          component: VoiceDetectResultAnalysisDetail
+        },
         {
           path: "voice_fault_print",
           name: "voice_fault_print",
