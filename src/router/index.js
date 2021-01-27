@@ -26,6 +26,9 @@ import VibrationFaultPrint from "../views/components/Vibration/VibrationFault/Vi
 import TimeScope from '../views/components/InformationService/TimeScope/TimeScope.vue'
 import HistoryFault from '../views/components/InformationService/HistoryFault/HistoryFault.vue'
 import QueryMethod from '../views/components/InformationService/QueryMethod/QueryMethod.vue'
+import Fault_403 from "../views/components/Abnormal/Fault_403.vue"
+import Fault_404 from "../views/components/Abnormal/Fault_404.vue"
+import Fault_500 from "../views/components/Abnormal/Fault_500.vue"
 
 export default createRouter({
   // history: createWebHashHistory(),
@@ -205,7 +208,20 @@ export default createRouter({
           },
           component: QueryMethod
         },
-
+        {
+          path: "403",
+          name: "403",
+          component: Fault_403
+        },
+        {
+          path: "404",
+          name: "404",
+          component: Fault_404
+        }, {
+          path: "500",
+          name: "500",
+          component: Fault_500
+        }
       ]
     }
   ]
