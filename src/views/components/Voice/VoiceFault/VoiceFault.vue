@@ -93,7 +93,7 @@
         </a-row>
         <a-row style="margin-top:3%">
             <a-col :span="6">
-                <img src="../../../assets/fault01.png" />
+                <img src="../../../../assets/fault01.png" />
             </a-col>
             <a-col :span="10">对内圈故障以及传统检测方式的描述</a-col>
         </a-row>
@@ -113,7 +113,7 @@
         </a-row>
         <a-row style="margin-top:3%">
             <a-col :span="6">
-                <img src="../../../assets/LSTM_pic.png" />
+                <img src="../../../../assets/LSTM_pic.png" />
             </a-col>
             <a-col :span="10">对内圈故障以及传统检测方式的描述</a-col>
         </a-row>

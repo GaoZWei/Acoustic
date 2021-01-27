@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Breadcrumb from "../Common/Breadcrumb.vue";
+import Breadcrumb from "../../Common/Breadcrumb";
 import VoiceComponentAddForm from "./VoiceComponentAddForm.vue";
 export default {
   components: {

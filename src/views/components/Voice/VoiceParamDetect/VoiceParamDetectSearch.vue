@@ -3,7 +3,7 @@
     <div id="voice_param_detect_search">
         <a-row>
             <a-col :span="12">
-                <a-input v-model:value="value" placeholder="请输入部件的编号/描述信息" /></a-col>
+                <a-input v-model:value="value" placeholder="请输入部件的编号和描述信息" /></a-col>
             <a-col :span="7">
                 <a-select v-model:value="type" placeholder="请选择" style="width:10.5em">
                     <a-select-option value="bearing">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Breadcrumb from "../Common/Breadcrumb.vue";
+import Breadcrumb from "../../Common/Breadcrumb.vue";
 export default {
   components: {
     Breadcrumb
@@ -55,3 +55,4 @@ export default {
   margin-right: 25%;
 }
 </style>
+

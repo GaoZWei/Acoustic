@@ -7,23 +7,23 @@ import Login from "../views/components/Common/Login.vue"
 import Login_phone from "../views/components/Common/Login_phone.vue"
 import Register from "../views/components/Common/Register.vue"
 import Main from '../views/main/Main.vue'
-import VoiceComponentAdd from '../views/components/Voice/VoiceComponentAdd.vue'
-import VoiceAttributeConfig from '../views/components/Voice/VoiceAttributeConfig.vue'
-import VoiceAttributeConfigDetail from "../views/components/Voice/VoiceAttributeConfigDetail.vue"
-import VoiceParamDetect from "../views/components/Voice/VoiceParamDetect.vue"
-import VoiceIntelligenceDetect from "../views/components/Voice/VoiceIntelligenceDetect.vue"
-import VoiceDetectResultAnalysis from "../views/components/Voice/VoiceDetectResultAnalysis.vue"
-import VoiceDetectResultAnalysisDetail from "../views/components/Voice/VoiceDetectResultAnalysisDetail.vue"
-import VoiceFaultPrint from "../views/components/Voice/VoiceFaultPrint.vue"
-import VibrationComponentAdd from '../views/components/Vibration/VibrationComponentAdd.vue'
-import VibrationAttributeConfig from '../views/components/Vibration/VibrationAttributeConfig.vue'
-import VibrationTimeFrequentDetect from "../views/components/Vibration/VibrationTimeFrequentDetect.vue"
-import VibrationIntelligenceDetect from "../views/components/Vibration/VibrationIntelligenceDetect.vue"
-import VibrationDetectResult from "../views/components/Vibration/VibrationDetectResult.vue"
-import VibrationFaultPrint from "../views/components/Vibration/VibrationFaultPrint.vue"
-import TimeScope from '../views/components/InformationService/TimeScope.vue'
-import HistoryFault from '../views/components/InformationService/HistoryFault.vue'
-import QueryMethod from '../views/components/InformationService/QueryMethod.vue'
+import VoiceComponentAdd from '../views/components/Voice/VoiceComponentAdd/VoiceComponentAdd.vue'
+import VoiceAttributeConfig from '../views/components/Voice/VoiceAttributeConfig/VoiceAttributeConfig.vue'
+import VoiceAttributeConfigDetail from "../views/components/Voice/VoiceAttributeConfig/VoiceAttributeConfigDetail.vue"
+import VoiceParamDetect from "../views/components/Voice/VoiceParamDetect/VoiceParamDetect.vue"
+import VoiceIntelligenceDetect from "../views/components/Voice/VoiceIntelligenceDetect/VoiceIntelligenceDetect.vue"
+import VoiceDetectResultAnalysis from "../views/components/Voice/VoiceDetectResultAnalysis/VoiceDetectResultAnalysis.vue"
+import VoiceDetectResultAnalysisDetail from "../views/components/Voice/VoiceDetectResultAnalysis/VoiceDetectResultAnalysisDetail.vue"
+import VoiceFaultPrint from "../views/components/Voice/VoiceFault/VoiceFaultPrint.vue"
+import VibrationComponentAdd from '../views/components/Vibration/VibrationComponentAdd/VibrationComponentAdd.vue'
+import VibrationAttributeConfig from '../views/components/Vibration/VibrationAttributeConfig/VibrationAttributeConfig.vue'
+import VibrationTimeFrequentDetect from "../views/components/Vibration/VibrationTimeFrequentDetect/VibrationTimeFrequentDetect.vue"
+import VibrationIntelligenceDetect from "../views/components/Vibration/VibrationIntelligenceDetect/VibrationIntelligenceDetect.vue"
+import VibrationDetectResultAnalysis from "../views/components/Vibration/VibrationDetectResultAnalysis/VibrationDetectResultAnalysis.vue"
+import VibrationFaultPrint from "../views/components/Vibration/VibrationFault/VibrationFaultPrint.vue"
+import TimeScope from '../views/components/InformationService/TimeScope/TimeScope.vue'
+import HistoryFault from '../views/components/InformationService/HistoryFault/HistoryFault.vue'
+import QueryMethod from '../views/components/InformationService/QueryMethod/QueryMethod.vue'
 
 export default createRouter({
   // history: createWebHashHistory(),
@@ -149,7 +149,7 @@ export default createRouter({
           meta: {
             title: '检测结果'
           },
-          component: VibrationDetectResult
+          component: VibrationDetectResultAnalysis
         },
 
         {

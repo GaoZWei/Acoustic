@@ -16,7 +16,7 @@
     <br/>
     <a-row>
       <a-col :span="14">
-        <img src="../../../assets/LSTM_pic.png">
+        <img src="../../../../assets/LSTM_pic.png">
       </a-col>
       <a-col :span="10">
         description
@@ -40,7 +40,7 @@
     <br/>
     <a-row>
       <a-col :span="14">
-        <img src="../../../assets/DBN_pic.png">
+        <img src="../../../../assets/DBN_pic.png">
       </a-col>
       <a-col :span="10">
         description

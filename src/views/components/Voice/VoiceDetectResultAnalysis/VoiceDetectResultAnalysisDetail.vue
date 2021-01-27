@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Breadcrumb from "../../components/Common/Breadcrumb.vue";
+import Breadcrumb from "../../../components/Common/Breadcrumb.vue";
 import VoiceDetectResultAnalysisDetailTable from "./VoiceDetectResultAnalysisDetailTable.vue";
 import VoiceDetectResultAnalysisDetailWave from "./VoiceDetectResultAnalysisDetailWave.vue";
 import VoiceDetectResultAnalysisDetailAnalysis from "./VoiceDetectResultAnalysisDetailAnalysis.vue";

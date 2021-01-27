@@ -2,11 +2,11 @@
   <h1>故障分类</h1>
   <div class="line"></div>
   <a-row style="margin-top:3%">
-    <a-col :span="6"> <img src="../../../assets/fault01.png" /></a-col>
+    <a-col :span="6"> <img src="../../../../assets/fault01.png" /></a-col>
     <a-col :span="2"></a-col>
-    <a-col :span="6"> <img src="../../../assets/fault02.png" /></a-col>
+    <a-col :span="6"> <img src="../../../../assets/fault02.png" /></a-col>
     <a-col :span="2"></a-col>
-    <a-col :span="6"> <img src="../../../assets/fault03.png" /></a-col>
+    <a-col :span="6"> <img src="../../../../assets/fault03.png" /></a-col>
     <a-col :span="2"></a-col>
   </a-row>
 </template>

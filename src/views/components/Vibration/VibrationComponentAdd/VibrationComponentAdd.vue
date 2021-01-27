@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Breadcrumb from "../Common/Breadcrumb.vue";
+import Breadcrumb from "../../Common/Breadcrumb.vue";
 import VibrationComponentAddForm from "./VibrationComponentAddForm.vue";
 export default {
   components: {

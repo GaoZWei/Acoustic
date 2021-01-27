@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Breadcrumb from "../Common/Breadcrumb.vue";
+import Breadcrumb from "../../Common/Breadcrumb.vue";
 import VoiceAttributeConfigSearch from "./VoiceAttributeConfigSearch.vue";
 import VoiceAttributeConfigTable from "./VoiceAttributeConfigTable.vue";
 export default {

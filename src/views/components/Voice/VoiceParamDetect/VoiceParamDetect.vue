@@ -2,8 +2,8 @@
   <VoiceParamDetectSearch/>
   <VoiceParamDetectRadio/>
   <VoiceParamDetectTable/>
-  <img src="../../../assets/param_detect.png" />
-  <img src="../../../assets/param_detect.png" />
+  <img src="../../../../assets/param_detect.png" />
+  <img src="../../../../assets/param_detect.png" />
 </template>
 <script>
 import VoiceParamDetectSearch from "./VoiceParamDetectSearch.vue";

@@ -85,7 +85,7 @@
     </div>
 </template>
 <script>
-import Breadcrumb from "../Common/Breadcrumb.vue";
+import Breadcrumb from "../../Common/Breadcrumb";
 export default {
   components: {
     Breadcrumb
@@ -109,7 +109,7 @@ export default {
     };
   },
   methods: {
-     onSubmit() {
+    onSubmit() {
       console.log("submit!", this.form);
     }
   }
