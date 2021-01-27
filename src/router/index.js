@@ -17,9 +17,11 @@ import VoiceDetectResultAnalysisDetail from "../views/components/Voice/VoiceDete
 import VoiceFaultPrint from "../views/components/Voice/VoiceFault/VoiceFaultPrint.vue"
 import VibrationComponentAdd from '../views/components/Vibration/VibrationComponentAdd/VibrationComponentAdd.vue'
 import VibrationAttributeConfig from '../views/components/Vibration/VibrationAttributeConfig/VibrationAttributeConfig.vue'
+import VibrationAttributeConfigDetail from "../views/components/Vibration/VibrationAttributeConfig/VibrationAttributeConfigDetail.vue"
 import VibrationTimeFrequentDetect from "../views/components/Vibration/VibrationTimeFrequentDetect/VibrationTimeFrequentDetect.vue"
 import VibrationIntelligenceDetect from "../views/components/Vibration/VibrationIntelligenceDetect/VibrationIntelligenceDetect.vue"
 import VibrationDetectResultAnalysis from "../views/components/Vibration/VibrationDetectResultAnalysis/VibrationDetectResultAnalysis.vue"
+import VibrationDetectResultAnalysisDetail from "../views/components/Vibration/VibrationDetectResultAnalysis/VibrationDetectResultAnalysisDetail.vue"
 import VibrationFaultPrint from "../views/components/Vibration/VibrationFault/VibrationFaultPrint.vue"
 import TimeScope from '../views/components/InformationService/TimeScope/TimeScope.vue'
 import HistoryFault from '../views/components/InformationService/HistoryFault/HistoryFault.vue'
@@ -128,6 +130,15 @@ export default createRouter({
           component: VibrationAttributeConfig
         },
         {
+          path: "vibration_attribute_config_detail",
+          name: "vibration_attribute_config_detail",
+          meta: {
+            title: '部件配置'
+          },
+          component: VibrationAttributeConfigDetail
+        },
+
+        {
           path: "vibration_time_frequent_detect",
           name: "vibration_time_frequent_detect",
           meta: {
@@ -151,7 +162,14 @@ export default createRouter({
           },
           component: VibrationDetectResultAnalysis
         },
-
+        {
+          path: "vibration_detect_result_analysis_detail",
+          name: "vibration_detect_result_analysis_detail",
+          meta: {
+            title: '实时轴承分析'
+          },
+          component: VibrationDetectResultAnalysisDetail
+        },
         {
           path: "vibration_fault_print",
           name: "vibration_fault_print",
