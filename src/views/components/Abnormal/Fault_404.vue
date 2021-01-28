@@ -9,7 +9,7 @@
       <a-col :span="2"></a-col>
       <a-col :span="8">
         <span class="fault_code">404</span> <br/>
-        <span class="fault_description">抱歉，服务器出错了</span><br/>
+        <span class="fault_description">抱歉，你访问的页面不存在</span><br/>
         <br/>
         <a-button type="primary" class="fault_button">
           <router-link to="/">返回首页</router-link>

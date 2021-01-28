@@ -29,7 +29,8 @@ import QueryMethod from '../views/components/InformationService/QueryMethod/Quer
 import Fault_403 from "../views/components/Abnormal/Fault_403.vue"
 import Fault_404 from "../views/components/Abnormal/Fault_404.vue"
 import Fault_500 from "../views/components/Abnormal/Fault_500.vue"
-
+import Success from "../views/components/Result/Success.vue"
+import Fault from "../views/components/Result/Fault.vue"
 export default createRouter({
   // history: createWebHashHistory(),
   history: createWebHistory(),
@@ -221,6 +222,22 @@ export default createRouter({
           path: "500",
           name: "500",
           component: Fault_500
+        },
+        {
+          path: "success",
+          name: "success",
+          meta: {
+            title: '成功页'
+          },
+          component: Success
+        },
+        {
+          path: "fault",
+          name: "fault",
+          meta: {
+            title: '失败页'
+          },
+          component: Fault
         }
       ]
     }
