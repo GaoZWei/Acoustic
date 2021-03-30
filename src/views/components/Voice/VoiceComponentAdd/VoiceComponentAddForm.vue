@@ -73,7 +73,6 @@ export default {
         id: "",
         model: "",
         type: "bearing",
-        type1: "",
         traditional: true,
         intelligent: ["dbn","lstm"],
         desc: "",
@@ -84,7 +83,8 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("submit!", this.form);
+    //   console.log("submit!", this.form);
+      console.log(this.form.id)//post
     }
   }
 };
