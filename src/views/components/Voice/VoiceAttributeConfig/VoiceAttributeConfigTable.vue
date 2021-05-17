@@ -1,11 +1,11 @@
 <template>
-  <a-table :columns="columns" :data-source="data" @change="onChange" class="voice_attribute_config_table">
+  <a-table :columns="columns" :data-source="list" @change="onChange" class="voice_attribute_config_table">
     <template #action="{record}">
-      <span>
-        {{record.key}}
+      <span :rowKey="record.id">
+        <!-- {{record.id}} -->
         <router-link to="voice_attribute_config_detail">修改</router-link>
         <a-divider type="vertical" />
-        <a>停止检测</a>
+        <a>查看详情</a>
       </span>
     </template>
   </a-table>
@@ -14,21 +14,25 @@
 const columns = [
   {
     title: "部件号",
-    dataIndex: "component_name"
+    dataIndex: "deviceSno"
   },
   {
     title: "轴承类型",
-    dataIndex: "component_type"
+    dataIndex: "deviceCategory"
   },
   // {
-  //   title: "Age",
-  //   dataIndex: "age",
+  //   title: "描述",
+  //   dataIndex: "deviceDescrition",
   //   defaultSortOrder: "descend",
   //   sorter: (a, b) => a.age - b.age
   // },
   {
+    title: "部件描述",
+    dataIndex: "deviceDescrition"
+  },
+  {
     title: "创建时间",
-    dataIndex: "create_time",
+    dataIndex: "deviceProductionTime",
     defaultSortOrder: "descend",
     sorter: (a, b) => {
       // a.create_time - b.create_time
@@ -39,7 +43,7 @@ const columns = [
   },
   {
     title: "状态",
-    dataIndex: "status",
+    dataIndex: "deviceStatus",
     filters: [
       {
         text: "运行中",
@@ -71,12 +75,12 @@ const columns = [
     // sorter: (a, b) => a.status.length - b.status.length,
     // sortDirections: ["descend"]
   },
-  {
-    title: "更新时间",
-    dataIndex: "update_time",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => a.create_time - b.create_time
-  },
+  // {
+  //   title: "更新时间",
+  //   dataIndex: "update_time",
+  //   defaultSortOrder: "descend",
+  //   sorter: (a, b) => a.create_time - b.create_time
+  // },
   {
     title: "操作",
     dataIndex: "action",
@@ -98,58 +102,90 @@ const columns = [
   }
 ];
 
-const data = [
-  {
-    key: "1",
-    component_name: "1号轴承",
-    component_type: "滚珠轴承",
-    status: "运行中",
-    age: 32,
-    create_time: "2017-10-31  23:12:00",
-    update_time: "2017-10-31  23:12:00"
-  },
-  {
-    key: "2",
-    component_name: "2号轴承",
-    component_type: "圆柱滚子轴承",
-    status: "关闭",
-    age: 42,
-    create_time: "2017-10-31  23:12:02",
-    update_time: "2017-10-31  23:12:00"
-  },
-  {
-    key: "3",
-    component_name: "3号轴承",
-    component_type: "圆柱滚子轴承",
-    status: "内圈故障",
-    age: 32,
-    create_time: "2017-10-31  13:12:00",
-    update_time: "2017-10-31  23:12:00"
-  },
-  {
-    key: "4",
-    component_name: "4号轴承",
-    component_type: "滚珠轴承",
-    status: "外圈故障",
-    age: 32,
-    create_time: "2017-10-30  23:12:00",
-    update_time: "2017-10-31  23:12:00"
-  }
-];
-
-function onChange(pagination, filters, sorter) {
+// const data = [
+//   {
+//     key: "1",
+//     component_name: "1号轴承",
+//     component_type: "滚珠轴承",
+//     status: "运行中",
+//     age: 32,
+//     create_time: "2017-10-31  23:12:00",
+//     update_time: "2017-10-31  23:12:00"
+//   },
+//   {
+//     key: "2",
+//     component_name: "2号轴承",
+//     component_type: "圆柱滚子轴承",
+//     status: "关闭",
+//     age: 42,
+//     create_time: "2017-10-31  23:12:02",
+//     update_time: "2017-10-31  23:12:00"
+//   },
+//   {
+//     key: "3",
+//     component_name: "3号轴承",
+//     component_type: "圆柱滚子轴承",
+//     status: "内圈故障",
+//     age: 32,
+//     create_time: "2017-10-31  13:12:00",
+//     update_time: "2017-10-31  23:12:00"
+//   },
+//   {
+//     key: "4",
+//     component_name: "4号轴承",
+//     component_type: "滚珠轴承",
+//     status: "外圈故障",
+//     age: 32,
+//     create_time: "2017-10-30  23:12:00",
+//     update_time: "2017-10-31  23:12:00"
+//   }
+// ];
+import { reactive, toRefs, watchEffect } from "vue";
+import { get } from "../../../../utils/request.js";
+const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
-}
+};
+
+//声信号检测结果分析
+const useVoiceConfigTableEffect = () => {
+  const data = reactive({
+    list: []
+  });
+  const getItemData = async () => {
+    // const result = await get(`/api/shop/1`);
+    const result = await get(
+      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/query/all/device/information`
+    );
+    if (result.retCode == 200) {
+      const list = result.data;
+      for (let i in list) {
+        list[i].key = i;
+      }
+      data.list = list;
+    }
+  };
+  watchEffect(() => {
+    //自动感知代码变化
+    getItemData();
+  });
+  const { list } = toRefs(data);
+  return { list };
+};
 
 export default {
-  data() {
-    return {
-      data,
-      columns
-    };
-  },
-  methods: {
-    onChange
+  name: "VoiceAttributeConfigTable",
+  // data() {
+  //   return {
+  //     data,
+  //     columns
+  //   };
+  // },
+  // methods: {
+  //   onChange
+  // },
+  setup() {
+    const { list } = useVoiceConfigTableEffect();
+    return { list, columns, onChange };
   }
 };
 </script>
