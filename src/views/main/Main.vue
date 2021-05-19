@@ -127,9 +127,9 @@ export default {
   },
   watch: {
     //监听页面路由的切换，将选中的nav动态更新
-    $route(to, from) {
-      console.log(to);
-      console.log(from);
+    $route(to) { //(to, from) 
+      // console.log(to);
+      // console.log(from);
       this.navselected = to.path.slice(1);
     }
   },
