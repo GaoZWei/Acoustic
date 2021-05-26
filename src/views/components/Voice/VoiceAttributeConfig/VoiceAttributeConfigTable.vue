@@ -4,8 +4,8 @@
       <span :rowKey="record.id">
         <!-- {{record.id}} -->
         <router-link to="voice_attribute_config_detail">修改</router-link>
-        <a-divider type="vertical" />
-        <a>查看详情</a>
+        <!-- <a-divider type="vertical" />
+        <a>查看详情</a> -->
       </span>
     </template>
   </a-table>

@@ -71,7 +71,7 @@ const vibrationDetectResultEffect = () => {
       }
     } else {
       const result = await get(
-        `https://mockapi.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d/database/stopdevicedecetion/${devicecategory}/${devicesno}`
+        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/stopdevicedecetion/{devicecategory}/{devicesno}`
       );
       if (result.retCode == 200) {
         console.log("结束检测");

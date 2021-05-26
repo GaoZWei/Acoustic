@@ -3,9 +3,9 @@
     <template #action="{record}">
       <span :rowKey="record.id">
         <!-- {{record.id}} -->
-        <router-link to="vibration_attribute_config_detail">修改</router-link>
-        <!-- <a-divider type="vertical" /> -->
-        <!-- <a>查看详情</a> -->
+        <!-- <router-link to="vibration_attribute_config_detail">修改</router-link> -->
+        <!-- <a-divider type="vertical" />-->
+        <router-link to="/vibration_detect_result_analysis_detail">查看详情</router-link>
       </span>
     </template>
   </a-table>

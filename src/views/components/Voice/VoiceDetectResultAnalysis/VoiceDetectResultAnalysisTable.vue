@@ -1,11 +1,11 @@
 <template>
-  <a-table :columns="columns" :data-source="list" @change="onChange" class="vibration_attribute_config_table">
+  <a-table :columns="columns" :data-source="list" @change="onChange" class="voice_attribute_config_table">
     <template #action="{record}">
       <span :rowKey="record.id">
         <!-- {{record.id}} -->
-        <router-link to="vibration_attribute_config_detail">修改</router-link>
-        <!-- <a-divider type="vertical" /> -->
-        <!-- <a>查看详情</a> -->
+        <!-- <router-link to="voice_attribute_config_detail">修改</router-link> -->
+        <!-- <a-divider type="vertical" />-->
+        <router-link to="/voice_detect_result_analysis_detail">查看详情</router-link>
       </span>
     </template>
   </a-table>
@@ -147,7 +147,7 @@ const onChange = (pagination, filters, sorter) => {
 };
 
 //声信号检测结果分析
-const useVibrationConfigTableEffect = () => {
+const useVoiceConfigTableEffect = () => {
   const data = reactive({
     list: []
   });
@@ -173,7 +173,7 @@ const useVibrationConfigTableEffect = () => {
 };
 
 export default {
-  name: "VibrationAttributeConfigTable",
+  name: "VoiceAttributeConfigTable",
   // data() {
   //   return {
   //     data,
@@ -184,13 +184,13 @@ export default {
   //   onChange
   // },
   setup() {
-    const { list } = useVibrationConfigTableEffect();
+    const { list } = useVoiceConfigTableEffect();
     return { list, columns, onChange };
   }
 };
 </script>
 <style scoped>
-.vibration_attribute_config_table {
+.voice_attribute_config_table {
   margin-top: 2%;
 }
 </style>

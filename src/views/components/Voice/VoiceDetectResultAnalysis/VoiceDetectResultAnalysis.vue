@@ -1,15 +1,17 @@
 
 <template>
     <VoiceDetectResultAnalysisSearch/>
-    <VoiceDetectResultAnalysisChart/>
+    <VoiceDetectResultAnalysisTable/>
 </template>
 <script>
 import VoiceDetectResultAnalysisSearch from "./VoiceDetectResultAnalysisSearch.vue";
-import VoiceDetectResultAnalysisChart from "./VoiceDetectResultAnalysisChart.vue";
+// import VoiceDetectResultAnalysisChart from "./VoiceDetectResultAnalysisChart.vue";
+import VoiceDetectResultAnalysisTable from "./VoiceDetectResultAnalysisTable";
+
 export default {
   components: {
     VoiceDetectResultAnalysisSearch,
-    VoiceDetectResultAnalysisChart
+    VoiceDetectResultAnalysisTable
   }
 };
 </script>

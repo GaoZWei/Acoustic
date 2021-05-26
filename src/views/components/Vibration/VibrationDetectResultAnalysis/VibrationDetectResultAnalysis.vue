@@ -1,15 +1,15 @@
 
 <template>
     <VibrationDetectResultAnalysisSearch/>
-    <VibrationDetectResultAnalysisChart/>
+    <VibrationDetectResultAnalysisTable/>
 </template>
 <script>
 import VibrationDetectResultAnalysisSearch from "./VibrationDetectResultAnalysisSearch.vue";
-import VibrationDetectResultAnalysisChart from "./VibrationDetectResultAnalysisChart.vue";
+import VibrationDetectResultAnalysisTable from "./VibrationDetectResultAnalysisTable";
 export default {
   components: {
     VibrationDetectResultAnalysisSearch,
-    VibrationDetectResultAnalysisChart
+    VibrationDetectResultAnalysisTable
   }
 };
 </script>
