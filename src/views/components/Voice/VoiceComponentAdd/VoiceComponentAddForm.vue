@@ -98,7 +98,7 @@ const componentAddEffect = () => {
         deviceDescrition === "" ||
         deviceStatus === ""
       ) {
-        alert(123);
+        alert("请输入完整");
       }
       const result = await post(
         "https://mockapi.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d/database/insert/devices/information",

@@ -76,9 +76,8 @@ const voiceDetectResultEffect = () => {
       if (result.retCode == 200) {
         console.log("结束检测");
         data.isDetecting = !isDetecting;
-      }
-      else{
-        console.log(result)
+      } else {
+        console.log(result);
       }
     }
   };
