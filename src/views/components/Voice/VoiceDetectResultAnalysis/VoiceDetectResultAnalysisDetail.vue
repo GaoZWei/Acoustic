@@ -60,6 +60,17 @@ const voiceDetectResultEffect = () => {
     devicesno: "",
     devicecategory: ""
   });
+  //判断该设备是否正在检测中
+  const getDetect = async () => {
+    const result = await get(
+      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/istesting/{devicecategory}/{devicesno}`
+    );
+    if (result.retCode == 1) {
+      data.isDetecting = true;
+    } else if (result.retCode == 0) {
+      data.isDetecting = false;
+    }
+  };
   const handleDetectChange = async isDetecting => {
     if (!data.isDetecting) {
       const result = await get(
@@ -86,6 +97,7 @@ const voiceDetectResultEffect = () => {
     isDetecting,
     devicesno,
     devicecategory,
+    getDetect,
     handleDetectChange
   };
 };
@@ -97,19 +109,15 @@ export default {
     VoiceDetectResultAnalysisDetailWave,
     VoiceDetectResultAnalysisDetailAnalysis
   },
-  // data() {
-  //   return {
-  //     detect_time: ""
-  //   };
-  // }
-
   setup() {
     const {
       isDetecting,
       devicesno,
       devicecategory,
+      getDetect,
       handleDetectChange
     } = voiceDetectResultEffect();
+    getDetect();
     return {
       isDetecting,
       devicesno,
