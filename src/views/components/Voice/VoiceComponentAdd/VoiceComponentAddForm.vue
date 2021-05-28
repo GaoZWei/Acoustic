@@ -70,9 +70,11 @@
 </template>
 <script>
 import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
 import { post } from "../../../../utils/request.js";
 
 const componentAddEffect = () => {
+  const router = useRouter();
   const data = reactive({
     deviceCategory: "",
     deviceSno: "",
@@ -91,6 +93,8 @@ const componentAddEffect = () => {
         deviceDescrition,
         deviceStatus
       } = data;
+    //   const haomao = deviceProductionTime.getTime();
+    //   console.log(data.deviceProductionTime);
       if (
         deviceCategory === "" ||
         deviceSno === "" ||
@@ -101,7 +105,7 @@ const componentAddEffect = () => {
         alert("请输入完整");
       }
       const result = await post(
-        "https://mockapi.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d/database/insert/devices/information",
+        "https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/insert/devices/information",
         {
           deviceCategory: data.deviceCategory,
           deviceSno: data.deviceSno,
@@ -110,7 +114,11 @@ const componentAddEffect = () => {
           deviceStatus: data.deviceStatus
         }
       );
-      console.log(result);
+      if (result.retCode == 200) {
+        router.push({ name: "voice_attribute_config" });
+      } else if (result.retCode == 506) {
+        alert("部件已存在");
+      }
     } catch (e) {
       console.log(123);
     }
@@ -148,6 +156,10 @@ export default {
       wrapperCol,
       onSubmit
     } = componentAddEffect();
+    // var timeStamp = 1371466996.385926;
+    // var time = new Date(timeStamp * 1000);
+    // console.log(time);
+    // console.log(123);
     return {
       deviceCategory,
       deviceSno,

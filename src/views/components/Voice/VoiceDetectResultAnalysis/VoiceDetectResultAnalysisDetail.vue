@@ -6,17 +6,16 @@
         轴承编号<br/>
         <a-input v-model:value="devicesno" placeholder="1号车轴" />
       </a-col>
-      <a-col :span="1"></a-col>
+      <a-col :span="2"></a-col>
       <a-col :span="3">
         轴承类型<br/>
         <a-input v-model:value="devicecategory" placeholder="圆柱滚子轴承" />
       </a-col>
-      <a-col :span="1"></a-col>
-      <a-col :span="2">
+      <a-col :span="2"></a-col>
+      <!-- <a-col :span="2">
         是否故障<br/>-- 故障--
-      </a-col>
-      <a-col :span="1"></a-col>
-      <a-col :span="3">
+      </a-col> -->
+      <a-col :span="4">
         使用时间<br/>
         <a-input v-model:value="devicecategory" placeholder="2年11月" />
       </a-col>

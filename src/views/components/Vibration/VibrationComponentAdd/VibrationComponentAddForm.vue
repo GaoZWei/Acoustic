@@ -1,6 +1,6 @@
 <template>
     <div class="vibration_component_add_form">
-          <a-form :label-col="labelCol" :wrapper-col="wrapperCol">
+        <a-form :label-col="labelCol" :wrapper-col="wrapperCol">
             <a-form-item label="编号">
                 <!-- <a-input v-model:value="form.id" placeholder="给部件起个编号" /> -->
                 <a-input v-model:value="deviceSno" placeholder="给部件起个编号" />
@@ -69,9 +69,11 @@
 </template>
 <script>
 import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
 import { post } from "../../../../utils/request.js";
 
 const componentAddEffect = () => {
+  const router = useRouter();
   const data = reactive({
     deviceCategory: "",
     deviceSno: "",
@@ -100,7 +102,7 @@ const componentAddEffect = () => {
         alert("请输入完整");
       }
       const result = await post(
-        "https://mockapi.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d/database/insert/devices/information",
+        "https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/insert/devices/information",
         {
           deviceCategory: data.deviceCategory,
           deviceSno: data.deviceSno,
@@ -109,7 +111,11 @@ const componentAddEffect = () => {
           deviceStatus: data.deviceStatus
         }
       );
-      console.log(result);
+      if (result.retCode == 200) {
+        router.push({ name: "voice_attribute_config" });
+      } else if (result.retCode == 506) {
+        alert("部件已存在");
+      }
     } catch (e) {
       console.log(e);
     }
