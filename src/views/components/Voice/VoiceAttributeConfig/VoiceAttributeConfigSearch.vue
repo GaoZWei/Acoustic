@@ -46,9 +46,11 @@
       </a-col>
       <a-col :span="2">
         <a-form-item>
-          <a-button type="primary" html-type="submit" block>
-            <PlusOutlined /> 新建
-          </a-button>
+          <router-link to="/vibration_component_add">
+            <a-button type="primary" html-type="submit" block>
+              <PlusOutlined /> 新建
+            </a-button>
+          </router-link>
         </a-form-item>
       </a-col>
     </a-row>

@@ -35,14 +35,14 @@ const columns = [
   },
   {
     title: "测试时间",
-    dataIndex: "deviceTestTime",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => {
-      // a.create_time - b.create_time
-      if (a.create_time && b) {
-        return 12;
-      }
-    }
+    dataIndex: "deviceTestTime"
+    // defaultSortOrder: "descend",
+    // sorter: (a, b) => {
+    //   // a.create_time - b.create_time
+    //   if (a.create_time && b) {
+    //     return 12;
+    //   }
+    // }
   },
   {
     title: "状态",
@@ -87,6 +87,7 @@ const columns = [
 
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
+import { dateFormatFn } from "../../../../utils/time.js";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
 };
@@ -114,6 +115,11 @@ const useVibrationConfigTableEffect = () => {
         } else if (list[i].deviceWay == 0) {
           list[i].deviceWay = "LSTM";
         }
+        var timeStamp = list[i].deviceTestTime;
+        // var time = new Date(timeStamp * 1000);
+        var date = new Date(timeStamp);
+        var timelast = dateFormatFn(date);
+        list[i].deviceTestTime = timelast.toString();
       }
       data.list = list;
     }

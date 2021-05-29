@@ -62,7 +62,6 @@
                             保存
                         </a-button>
                     </a-col>
-
                 </a-row>
             </a-form-item>
         </a-form>
@@ -93,8 +92,6 @@ const componentAddEffect = () => {
         deviceDescrition,
         deviceStatus
       } = data;
-    //   const haomao = deviceProductionTime.getTime();
-    //   console.log(data.deviceProductionTime);
       if (
         deviceCategory === "" ||
         deviceSno === "" ||
@@ -103,24 +100,32 @@ const componentAddEffect = () => {
         deviceStatus === ""
       ) {
         alert("请输入完整");
-      }
-      const result = await post(
-        "https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/insert/devices/information",
-        {
-          deviceCategory: data.deviceCategory,
-          deviceSno: data.deviceSno,
-          deviceProductionTime: data.deviceProductionTime,
-          deviceDescrition: data.deviceDescrition,
-          deviceStatus: data.deviceStatus
+      } else {
+        //处理时间戳
+        const deviceProductionTimeFormat = data.deviceProductionTime.format(
+          "yyyy-MM-DD HH:mm:ss"
+        );
+        var deviceProductionTimeOne = new Date(deviceProductionTimeFormat);
+        var deviceProductionTimeTwo = deviceProductionTimeOne.getTime();
+        var deviceProductionTimeItem = deviceProductionTimeTwo / 1000;
+        const result = await post(
+          "https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/insert/devices/information",
+          {
+            deviceCategory: data.deviceCategory,
+            deviceSno: data.deviceSno,
+            deviceProductionTime: deviceProductionTimeItem,
+            deviceDescrition: data.deviceDescrition,
+            deviceStatus: data.deviceStatus
+          }
+        );
+        if (result.retCode == 200) {
+          router.push({ name: "voice_attribute_config" });
+        } else if (result.retCode == 506) {
+          alert("部件已存在");
         }
-      );
-      if (result.retCode == 200) {
-        router.push({ name: "voice_attribute_config" });
-      } else if (result.retCode == 506) {
-        alert("部件已存在");
       }
     } catch (e) {
-      console.log(123);
+      console.log(e);
     }
   };
   const {
@@ -156,10 +161,10 @@ export default {
       wrapperCol,
       onSubmit
     } = componentAddEffect();
-    // var timeStamp = 1371466996.385926;
+    // 时间戳转时间
+    // var timeStamp = 1619433445;
     // var time = new Date(timeStamp * 1000);
     // console.log(time);
-    // console.log(123);
     return {
       deviceCategory,
       deviceSno,

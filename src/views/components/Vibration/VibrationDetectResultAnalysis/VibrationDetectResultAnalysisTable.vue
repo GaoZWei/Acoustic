@@ -32,14 +32,14 @@ const columns = [
   },
   {
     title: "创建时间",
-    dataIndex: "deviceProductionTime",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => {
-      // a.create_time - b.create_time
-      if (a.create_time && b) {
-        return 12;
-      }
-    }
+    dataIndex: "deviceProductionTime"
+    // defaultSortOrder: "descend",
+    // sorter: (a, b) => {
+    //   // a.create_time - b.create_time
+    //   if (a.create_time && b) {
+    //     return 12;
+    //   }
+    // }
   },
   {
     title: "状态",
@@ -142,6 +142,7 @@ const columns = [
 // ];
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
+import { dateFormatFn } from "../../../../utils/time.js";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
 };
@@ -160,6 +161,13 @@ const useVibrationConfigTableEffect = () => {
       const list = result.data;
       for (let i in list) {
         list[i].key = i;
+        console.log(list[i])
+        let timeStamp = list[i].deviceProductionTime;
+        // var time = new Date(timeStamp * 1000);
+        let date = new Date(timeStamp);
+        let timelast = dateFormatFn(date);
+        console.log(timelast)
+        list[i].deviceProductionTime = timelast;
       }
       data.list = list;
     }
@@ -174,15 +182,6 @@ const useVibrationConfigTableEffect = () => {
 
 export default {
   name: "VibrationAttributeConfigTable",
-  // data() {
-  //   return {
-  //     data,
-  //     columns
-  //   };
-  // },
-  // methods: {
-  //   onChange
-  // },
   setup() {
     const { list } = useVibrationConfigTableEffect();
     return { list, columns, onChange };
