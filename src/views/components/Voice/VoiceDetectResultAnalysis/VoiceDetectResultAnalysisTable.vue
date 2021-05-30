@@ -5,7 +5,7 @@
         <!-- {{record.id}} -->
         <!-- <router-link to="voice_attribute_config_detail">修改</router-link> -->
         <!-- <a-divider type="vertical" />-->
-        <router-link to="/voice_detect_result_analysis_detail">查看详情</router-link>
+        <router-link :to="`/voice_detect_result_analysis_detail/${record.deviceCategory}/${record.deviceSno}`">查看详情</router-link>
       </span>
     </template>
   </a-table>
@@ -102,44 +102,6 @@ const columns = [
   }
 ];
 
-// const data = [
-//   {
-//     key: "1",
-//     component_name: "1号轴承",
-//     component_type: "滚珠轴承",
-//     status: "运行中",
-//     age: 32,
-//     create_time: "2017-10-31  23:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "2",
-//     component_name: "2号轴承",
-//     component_type: "圆柱滚子轴承",
-//     status: "关闭",
-//     age: 42,
-//     create_time: "2017-10-31  23:12:02",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "3",
-//     component_name: "3号轴承",
-//     component_type: "圆柱滚子轴承",
-//     status: "内圈故障",
-//     age: 32,
-//     create_time: "2017-10-31  13:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "4",
-//     component_name: "4号轴承",
-//     component_type: "滚珠轴承",
-//     status: "外圈故障",
-//     age: 32,
-//     create_time: "2017-10-30  23:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   }
-// ];
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
 const onChange = (pagination, filters, sorter) => {
@@ -160,6 +122,11 @@ const useVoiceConfigTableEffect = () => {
       const list = result.data;
       for (let i in list) {
         list[i].key = i;
+        if (list[i].deviceStatus == 1) {
+          list[i].deviceStatus = "故障";
+        } else if (list[i].deviceStatus == 0) {
+          list[i].deviceStatus = "正常";
+        }
       }
       data.list = list;
     }
@@ -174,15 +141,6 @@ const useVoiceConfigTableEffect = () => {
 
 export default {
   name: "VoiceAttributeConfigTable",
-  // data() {
-  //   return {
-  //     data,
-  //     columns
-  //   };
-  // },
-  // methods: {
-  //   onChange
-  // },
   setup() {
     const { list } = useVoiceConfigTableEffect();
     return { list, columns, onChange };
