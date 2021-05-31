@@ -72,7 +72,7 @@ export default {
         echartInit();
       }
     };
-    setInterval(getWaveItem, 1000); //每隔1s变化
+    setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
   }
 };
 </script>

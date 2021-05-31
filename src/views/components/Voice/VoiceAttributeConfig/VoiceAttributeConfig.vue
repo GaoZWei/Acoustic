@@ -7,6 +7,7 @@
 </template>
 
 <script>
+// import { getCurrentInstance } from "vue";
 import Breadcrumb from "../../Common/Breadcrumb.vue";
 import VoiceAttributeConfigSearch from "./VoiceAttributeConfigSearch.vue";
 import VoiceAttributeConfigTable from "./VoiceAttributeConfigTable.vue";
@@ -15,7 +16,12 @@ export default {
     Breadcrumb,
     VoiceAttributeConfigSearch,
     VoiceAttributeConfigTable
-  }
+  },
+  //测试获取路由的方法
+  // setup() {
+  //   const { ctx } = getCurrentInstance();
+  //   console.log(ctx.$router.currentRoute.value);
+  // }
 };
 </script>
 <style scoped>

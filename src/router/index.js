@@ -7,6 +7,7 @@ import Login from "../views/components/Common/Login.vue"
 import Login_phone from "../views/components/Common/Login_phone.vue"
 import Register from "../views/components/Common/Register.vue"
 import Main from '../views/main/Main.vue'
+import Content from "../views/main/Content.vue"
 import VoiceComponentAdd from '../views/components/Voice/VoiceComponentAdd/VoiceComponentAdd.vue'
 import VoiceAttributeConfig from '../views/components/Voice/VoiceAttributeConfig/VoiceAttributeConfig.vue'
 import VoiceAttributeConfigDetail from "../views/components/Voice/VoiceAttributeConfig/VoiceAttributeConfigDetail.vue"
@@ -51,12 +52,18 @@ export default createRouter({
       path: "/",
       name: "index",
       component: Main,
-      // redirect:'/history_fault',
+      redirect: '/voice_component_add', //重定向
       children: [{
+          path: "main",
+          name: "content",
+          component: Content
+        },
+        {
           path: "voice_component_add",
           name: "voice_component_add",
           meta: {
-            title: '部件添加'
+            title: '部件添加',
+            parent: 'sub1'
           },
           component: VoiceComponentAdd
         },
@@ -64,7 +71,8 @@ export default createRouter({
           path: "voice_attribute_config",
           name: "voice_attribute_config",
           meta: {
-            title: '属性配置'
+            title: '属性配置',
+            parent: 'sub1'
           },
           component: VoiceAttributeConfig
         },
@@ -80,7 +88,8 @@ export default createRouter({
           path: "voice_param_detect",
           name: "voice_param_detect",
           meta: {
-            title: '参数检测'
+            title: '参数检测',
+            parent: 'sub1-sub1_1'
           },
           component: VoiceParamDetect
         },
@@ -88,7 +97,8 @@ export default createRouter({
           path: "voice_intelligence_detect",
           name: "voice_intelligence_detect",
           meta: {
-            title: '智能检测'
+            title: '智能检测',
+            parent: 'sub1-sub1_1'
           },
           component: VoiceIntelligenceDetect
         },
@@ -97,12 +107,13 @@ export default createRouter({
           path: "voice_detect_result_analysis",
           name: "voice_detect_result_analysis",
           meta: {
-            title: '检测结果分析'
+            title: '检测结果分析',
+            parent: 'sub1-sub1_1'
           },
           component: VoiceDetectResultAnalysis
         },
         {
-          path: "voice_detect_result_analysis_detail",
+          path: "voice_detect_result_analysis_detail/:deviceCategory/:deviceSno",
           name: "voice_detect_result_analysis_detail",
           meta: {
             title: '实时轴承分析'
@@ -113,7 +124,8 @@ export default createRouter({
           path: "voice_fault_print",
           name: "voice_fault_print",
           meta: {
-            title: '打印故障单'
+            title: '打印故障单',
+            parent: 'sub1-sub1_1'
           },
           component: VoiceFaultPrint
         },
@@ -121,7 +133,8 @@ export default createRouter({
           path: "vibration_component_add",
           name: "vibration_component_add",
           meta: {
-            title: '部件添加'
+            title: '部件添加',
+            parent: 'sub2'
           },
           component: VibrationComponentAdd
         },
@@ -129,7 +142,8 @@ export default createRouter({
           path: "vibration_attribute_config",
           name: "vibration_attribute_config",
           meta: {
-            title: '属性配置'
+            title: '属性配置',
+            parent: 'sub2'
           },
           component: VibrationAttributeConfig
         },
@@ -146,7 +160,8 @@ export default createRouter({
           path: "vibration_time_frequent_detect",
           name: "vibration_time_frequent_detect",
           meta: {
-            title: '时频检测'
+            title: '时频检测',
+            parent: 'sub2-sub2_1'
           },
           component: VibrationTimeFrequentDetect
         },
@@ -154,7 +169,8 @@ export default createRouter({
           path: "vibration_intelligence_detect",
           name: "vibration_intelligence_detect",
           meta: {
-            title: '智能检测'
+            title: '智能检测',
+            parent: 'sub2-sub2_1'
           },
           component: VibrationIntelligenceDetect
         },
@@ -162,7 +178,8 @@ export default createRouter({
           path: "vibration_detect_result",
           name: "vibration_detect_result",
           meta: {
-            title: '检测结果'
+            title: '检测结果',
+            parent: 'sub2-sub2_1'
           },
           component: VibrationDetectResultAnalysis
         },
@@ -178,7 +195,8 @@ export default createRouter({
           path: "vibration_fault_print",
           name: "vibration_fault_print",
           meta: {
-            title: '打印故障单'
+            title: '打印故障单',
+            parent: 'sub2-sub2_1'
           },
           component: VibrationFaultPrint
         },
@@ -187,7 +205,8 @@ export default createRouter({
           path: "time_scope",
           name: "time_scope",
           meta: {
-            title: '时间范围搜索'
+            title: '时间范围搜索',
+            parent: 'sub3'
           },
           component: TimeScope
         },
@@ -196,7 +215,8 @@ export default createRouter({
           path: "history_fault",
           name: "history_fault",
           meta: {
-            title: '历史故障查询'
+            title: '历史故障查询',
+            parent: 'sub3'
           },
           component: HistoryFault
         },
@@ -205,7 +225,8 @@ export default createRouter({
           path: "query_method",
           name: "query_method",
           meta: {
-            title: '检测方法查询'
+            title: '检测方法查询',
+            parent: 'sub3'
           },
           component: QueryMethod
         },

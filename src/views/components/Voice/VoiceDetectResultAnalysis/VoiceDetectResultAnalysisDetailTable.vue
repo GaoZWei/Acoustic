@@ -87,6 +87,7 @@ const columns = [
 
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
+import { useRoute } from "vue-router";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
 };
@@ -96,6 +97,7 @@ const useVoiceConfigTableEffect = () => {
   const data = reactive({
     list: []
   });
+
   const getItemData = async () => {
     const result = await get(
       `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/results/multiple/detection-methods/{deviceCategory}/{deviceSno}`
@@ -129,6 +131,10 @@ const useVoiceConfigTableEffect = () => {
 export default {
   name: "VoiceDetectResultAnalysisDetailTable",
   setup() {
+    //获取路由的id
+    const route = useRoute();
+    const voiceId = route.params.id;
+    console.log(voiceId);
     const { list } = useVoiceConfigTableEffect();
     return { list, columns, onChange };
   }

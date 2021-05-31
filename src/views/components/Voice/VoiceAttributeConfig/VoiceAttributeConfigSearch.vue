@@ -46,7 +46,7 @@
       </a-col>
       <a-col :span="2">
         <a-form-item>
-          <router-link to="/vibration_component_add">
+          <router-link to="/voice_component_add">
             <a-button type="primary" html-type="submit" block>
               <PlusOutlined /> 新建
             </a-button>
