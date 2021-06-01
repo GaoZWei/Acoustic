@@ -5,7 +5,7 @@
         <!-- {{record.id}} -->
         <!-- <router-link to="vibration_attribute_config_detail">修改</router-link> -->
         <!-- <a-divider type="vertical" />-->
-        <router-link to="/vibration_detect_result_analysis_detail">查看详情</router-link>
+        <router-link :to="`/vibration_detect_result_analysis_detail/${record.deviceCategory}/${record.deviceSno}`">查看详情</router-link>
       </span>
     </template>
   </a-table>

@@ -4,12 +4,12 @@
     <a-row>
       <a-col :span="3">
         轴承编号<br/>
-        <a-input v-model:value="devicesno" placeholder="1号车轴" />
+        <a-input v-model:value="deviceSno" placeholder="1号车轴" />
       </a-col>
       <a-col :span="2"></a-col>
       <a-col :span="3">
         轴承类型<br/>
-        <a-input v-model:value="devicecategory" placeholder="圆柱滚子轴承" />
+        <a-input v-model:value="deviceCategory" placeholder="圆柱滚子轴承" />
       </a-col>
       <a-col :span="2"></a-col>
       <!-- <a-col :span="2">
@@ -17,7 +17,7 @@
       </a-col> -->
       <a-col :span="4">
         使用时间<br/>
-        <a-input v-model:value="devicecategory" placeholder="2年11月" />
+        <a-input v-model:value="time" placeholder="2年11月" />
       </a-col>
       <a-col :span="3"></a-col>
       <a-col :span="7">
@@ -51,18 +51,25 @@ import VoiceDetectResultAnalysisDetailWave from "./VoiceDetectResultAnalysisDeta
 import VoiceDetectResultAnalysisDetailAnalysis from "./VoiceDetectResultAnalysisDetailAnalysis.vue";
 
 import { reactive, toRefs } from "vue";
+import { useRoute } from "vue-router";
 import { get } from "../../../../utils/request.js";
 //声信号检测结果相关逻辑
 const voiceDetectResultEffect = () => {
+  const route = useRoute();
   const data = reactive({
     isDetecting: false,
-    devicesno: "",
-    devicecategory: ""
+    deviceSno: "",
+    deviceCategory: "",
+    time: "2年1个月"
   });
+  data.deviceCategory = route.params.deviceCategory;
+  data.deviceSno = route.params.deviceSno;
   //判断该设备是否正在检测中
   const getDetect = async () => {
     const result = await get(
-      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/istesting/{devicecategory}/{devicesno}`
+      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/istesting/${
+        data.deviceCategory
+      }/${data.deviceSno}`
     );
     if (result.retCode == 1) {
       data.isDetecting = true;
@@ -73,7 +80,9 @@ const voiceDetectResultEffect = () => {
   const handleDetectChange = async isDetecting => {
     if (!data.isDetecting) {
       const result = await get(
-        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/startdevicedecetion/${devicecategory}/${devicesno}`
+        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/startdevicedecetion/${
+          data.deviceCategory
+        }/${data.deviceSno}`
       );
       if (result.retCode == 200) {
         console.log("开始检测");
@@ -81,7 +90,9 @@ const voiceDetectResultEffect = () => {
       }
     } else {
       const result = await get(
-        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/stopdevicedecetion/{devicecategory}/{devicesno}`
+        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/stopdevicedecetion/${
+          data.deviceCategory
+        }/${data.deviceSno}`
       );
       if (result.retCode == 200) {
         console.log("结束检测");
@@ -91,11 +102,12 @@ const voiceDetectResultEffect = () => {
       }
     }
   };
-  const { isDetecting, devicesno, devicecategory } = toRefs(data);
+  const { isDetecting, deviceSno, deviceCategory, time } = toRefs(data);
   return {
     isDetecting,
-    devicesno,
-    devicecategory,
+    deviceSno,
+    deviceCategory,
+    time,
     getDetect,
     handleDetectChange
   };
@@ -111,16 +123,18 @@ export default {
   setup() {
     const {
       isDetecting,
-      devicesno,
-      devicecategory,
+      deviceSno,
+      deviceCategory,
+      time,
       getDetect,
       handleDetectChange
     } = voiceDetectResultEffect();
     getDetect();
     return {
       isDetecting,
-      devicesno,
-      devicecategory,
+      deviceSno,
+      deviceCategory,
+      time,
       handleDetectChange
     };
   }

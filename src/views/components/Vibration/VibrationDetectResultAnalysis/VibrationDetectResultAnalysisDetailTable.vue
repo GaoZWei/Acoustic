@@ -88,18 +88,24 @@ const columns = [
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
 import { dateFormatFn } from "../../../../utils/time.js";
+import { useRoute } from "vue-router";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
 };
 
 //声信号检测结果分析
 const useVibrationConfigTableEffect = () => {
+ const route = useRoute();
   const data = reactive({
-    list: []
+    list: [],
+    deviceSno: "",
+    deviceCategory: ""
   });
+  data.deviceCategory = route.params.deviceCategory;
+  data.deviceSno = route.params.deviceSno;
   const getItemData = async () => {
     const result = await get(
-      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/results/multiple/detection-methods/{deviceCategory}/{deviceSno}`
+      `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/results/multiple/detection-methods/${data.deviceCategory}/${data.deviceSno}`
     );
     if (result.retCode == 200) {
       const list = result.data;
@@ -131,7 +137,6 @@ const useVibrationConfigTableEffect = () => {
   const { list } = toRefs(data);
   return { list };
 };
-
 export default {
   name: "VibrationDetectResultAnalysisDetailTable",
   setup() {

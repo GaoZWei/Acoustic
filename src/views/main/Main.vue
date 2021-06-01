@@ -86,7 +86,8 @@
           </a-sub-menu>
         </a-menu> -->
 
-        <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :default-open-keys="openkeys" @click="handleClick">
+        <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :default-open-keys="openkeys" @click="handleClick"> -->
+        <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" v-model:openKeys="openkeys" @click="handleClick">
           <template v-for="item in menuList" :key="item.key">
             <a-menu-item v-if="!item.children || item.children.length===0" :key="item.key">
               <router-link :to="item.path" v-if="item.path">{{ item.title }}</router-link>
@@ -117,6 +118,17 @@ import { useRoute } from "vue-router";
 // import { useStore } from "vuex";
 import SubMenu from "../components/NavBar/SubMenu";
 
+// const getRouteNameEffect = () => {
+//   const route = useRoute();
+//   var exp = route.meta.parent.split("-");
+//   const changeRouter=()=>{
+
+//   }
+//   watchEffect(){
+
+//   }
+// };
+
 export default {
   components: {
     MenuUnfoldOutlined,
@@ -141,16 +153,23 @@ export default {
       collapsed: false,
       openkeys: exp //刷新默认展开菜单
     });
-    // if(route.meta.parent)
     const { selectedKeys, collapsed, openkeys } = toRefs(data);
     return { selectedKeys, collapsed, openkeys, menuList };
   },
+  // watchEffect() {
+  //   console.log(123);
+  // },
   // data() {
   //   return {
   //     menuList
   //   };
   // },
-
+  // updated() {
+  //   console.log(this.$route);
+  //   if (route.name == "voice_component_add") {
+  //     data.selectedKeys[0] = "voice_component_add";
+  //   }
+  // },
   // watch: {
   //   //监听页面路由的切换，将选中的nav动态更新
   //   $route(to) {

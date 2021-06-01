@@ -39,7 +39,7 @@ export default {
           return time;
         };
         var timeArray = [];
-        for (let j = 0; j < 200; j++) {
+        for (let j = 0; j < 1; j++) {
           timeArray.push(nowTime());
         }
         const echartInit = () => {
@@ -72,7 +72,8 @@ export default {
         echartInit();
       }
     };
-    setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
+    getWaveItem()
+    // setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
   }
 };
 </script>

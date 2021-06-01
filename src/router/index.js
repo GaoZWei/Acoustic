@@ -184,7 +184,7 @@ export default createRouter({
           component: VibrationDetectResultAnalysis
         },
         {
-          path: "vibration_detect_result_analysis_detail",
+          path: "vibration_detect_result_analysis_detail/:deviceCategory/:deviceSno",
           name: "vibration_detect_result_analysis_detail",
           meta: {
             title: '实时轴承分析'
