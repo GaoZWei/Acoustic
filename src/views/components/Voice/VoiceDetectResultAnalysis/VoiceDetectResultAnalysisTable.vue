@@ -104,6 +104,7 @@ const columns = [
 
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
+import { dateFormatFn } from "../../../../utils/time.js";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
 };
@@ -127,6 +128,11 @@ const useVoiceConfigTableEffect = () => {
         } else if (list[i].deviceStatus == 0) {
           list[i].deviceStatus = "正常";
         }
+        let timeStamp = list[i].deviceProductionTime;
+        // var time = new Date(timeStamp * 1000);
+        let date = new Date(timeStamp);
+        let timelast = dateFormatFn(date);
+        list[i].deviceProductionTime = timelast;
       }
       data.list = list;
     }

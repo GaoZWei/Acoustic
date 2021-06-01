@@ -170,7 +170,6 @@ const useVibrationConfigTableEffect = () => {
         // var time = new Date(timeStamp * 1000);
         let date = new Date(timeStamp);
         let timelast = dateFormatFn(date);
-        console.log(timelast);
         list[i].deviceProductionTime = timelast;
       }
       data.list = list;

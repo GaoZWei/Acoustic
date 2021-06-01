@@ -87,6 +87,7 @@ const columns = [
 
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
+import { dateFormatFn } from "../../../../utils/time.js";
 import { useRoute } from "vue-router";
 const onChange = (pagination, filters, sorter) => {
   console.log("params", pagination, filters, sorter);
@@ -116,6 +117,11 @@ const useVoiceConfigTableEffect = () => {
         } else if (list[i].deviceWay == 0) {
           list[i].deviceWay = "LSTM";
         }
+        var timeStamp = list[i].deviceTestTime;
+        // var time = new Date(timeStamp * 1000);
+        var date = new Date(timeStamp);
+        var timelast = dateFormatFn(date);
+        list[i].deviceTestTime = timelast.toString();
       }
       data.list = list;
     }

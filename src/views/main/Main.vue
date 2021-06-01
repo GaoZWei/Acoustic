@@ -114,6 +114,7 @@ const menuList = window.global.menus;
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
 import { reactive, toRefs } from "vue";
 import { useRoute } from "vue-router";
+// import { useStore } from "vuex";
 import SubMenu from "../components/NavBar/SubMenu";
 
 export default {
@@ -124,13 +125,23 @@ export default {
   },
   setup() {
     const route = useRoute();
+    // const store = useStore();
+    // const menuList = store.state.menu;
+    // var exp;
+    // if (route.meta.parent) {
+    //   exp = route.meta.parent.split("-");
+    //   console.log('exp'+exp);
+    // } else {
+    //   console.log('route'+route);
+    // }
     var exp = route.meta.parent.split("-");
-    console.log("exp:", exp);
+    // console.log("exp:", exp);
     const data = reactive({
       selectedKeys: [route.name],
       collapsed: false,
       openkeys: exp //刷新默认展开菜单
     });
+    // if(route.meta.parent)
     const { selectedKeys, collapsed, openkeys } = toRefs(data);
     return { selectedKeys, collapsed, openkeys, menuList };
   },
