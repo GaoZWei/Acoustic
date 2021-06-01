@@ -1,4 +1,5 @@
 <template>
+  <!-- 写异步请求 -->
   <div class="voice_detect_detail_wave">
     <h1>实时动态分析</h1>
     <div id="voice_detect_detail_wave_item" style="width: 90%; height: 20em;">
@@ -36,51 +37,53 @@ export default {
           var minutes = date.getMinutes();
           var second = date.getSeconds();
           var time = hours + ":" + minutes + ":" + second;
-          console.log(time);
+          // console.log(time);
           return time;
         };
         var timeArray = [];
-        for (let j = 0; j < 300; j++) {
+        for (let j = 0; j < 30; j++) {
           timeArray.push(nowTime());
         }
-        // setInterval(() => {
-        //   timeArray.shift();
-        //   timeArray.push(nowTime());
-        // }, 1000);
-        const echartInit = () => {
-          var option = {
-            xAxis: {
-              type: "category",
-              // boundaryGap: [1, "100%"],
-              data: timeArray,
-              splitLine: {
-                show: false
-              }
-            },
-            yAxis: {
-              type: "value"
-            },
-            series: [
-              {
-                data: dataWaveToArray,
-                type: "line",
-                showSymbol: false,
-                smooth: true
-              }
-            ]
-          };
-          if (myChart != null && myChart != "" && myChart != undefined) {
-            myChart.dispose();
-          }
-          myChart = echarts.init(
-            document.getElementById("voice_detect_detail_wave_item")
-          );
-          myChart.setOption(option);
-        };
-        echartInit();
+        return { dataWaveToArray, timeArray };
       }
     };
-    setInterval(getWaveItem, 1000); //每隔1s变化 暂时先变大,方便测试
+    const echartInit = (dataWaveToArray, timeArray) => {
+      var option = {
+        xAxis: {
+          type: "category",
+          // boundaryGap: [1, "100%"],
+          data: timeArray,
+          splitLine: {
+            show: false
+          }
+        },
+        yAxis: {
+          type: "value"
+        },
+        series: [
+          {
+            data: dataWaveToArray,
+            type: "line",
+            showSymbol: false,
+            smooth: true
+          }
+        ]
+      };
+      if (myChart != null && myChart != "" && myChart != undefined) {
+        myChart.dispose();
+      }
+      myChart = echarts.init(
+        document.getElementById("voice_detect_detail_wave_item")
+      );
+      myChart.setOption(option);
+    };
+    getWaveItem().then((dataWaveToArray, timeArray) => {
+      console.log(dataWaveToArray);
+      echartInit(dataWaveToArray, timeArray);
+    });
+    console.log(123);
+    // getWaveItem();
+    // setInterval(getWaveItem, 1000); //每隔1s变化 暂时先变大,方便测试
   }
 };
 </script>
