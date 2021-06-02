@@ -1,7 +1,7 @@
 import {
   createRouter,
-  // createWebHashHistory,
-  createWebHistory
+  createWebHashHistory,
+  // createWebHistory
 } from 'vue-router'
 import Login from "../views/components/Common/Login.vue"
 import Login_phone from "../views/components/Common/Login_phone.vue"
@@ -33,8 +33,8 @@ import Fault_500 from "../views/components/Abnormal/Fault_500.vue"
 import Success from "../views/components/Result/Success.vue"
 import Fault from "../views/components/Result/Fault.vue"
 export default createRouter({
-  // history: createWebHashHistory(),
-  history: createWebHistory(),
+  history: createWebHashHistory(),
+  // history: createWebHistory(),
   routes: [{
       path: "/login",
       name: "login",
@@ -116,7 +116,8 @@ export default createRouter({
           path: "voice_detect_result_analysis_detail/:deviceCategory/:deviceSno",
           name: "voice_detect_result_analysis_detail",
           meta: {
-            title: '实时轴承分析'
+            title: '实时轴承分析',
+            parent: 'sub1-sub1_1'
           },
           component: VoiceDetectResultAnalysisDetail
         },

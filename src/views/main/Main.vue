@@ -87,7 +87,7 @@
         </a-menu> -->
 
         <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :default-open-keys="openkeys" @click="handleClick"> -->
-        <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" v-model:openKeys="openkeys" @click="handleClick">
+        <a-menu theme="dark" mode="inline" :selectedKeys="[$route.name]" v-model:openKeys="openkeys" @click="handleClick">
           <template v-for="item in menuList" :key="item.key">
             <a-menu-item v-if="!item.children || item.children.length===0" :key="item.key">
               <router-link :to="item.path" v-if="item.path">{{ item.title }}</router-link>
@@ -118,17 +118,6 @@ import { useRoute } from "vue-router";
 // import { useStore } from "vuex";
 import SubMenu from "../components/NavBar/SubMenu";
 
-// const getRouteNameEffect = () => {
-//   const route = useRoute();
-//   var exp = route.meta.parent.split("-");
-//   const changeRouter=()=>{
-
-//   }
-//   watchEffect(){
-
-//   }
-// };
-
 export default {
   components: {
     MenuUnfoldOutlined,
@@ -139,15 +128,14 @@ export default {
     const route = useRoute();
     // const store = useStore();
     // const menuList = store.state.menu;
-    // var exp;
-    // if (route.meta.parent) {
-    //   exp = route.meta.parent.split("-");
-    //   console.log('exp'+exp);
-    // } else {
-    //   console.log('route'+route);
-    // }
+    // watch(
+    //   () => route.path,
+    //   () => {
+    //     console.log("监听到变化");
+    //   }
+    // );
     var exp = route.meta.parent.split("-");
-    // console.log("exp:", exp);
+    console.log("exp:", exp);
     const data = reactive({
       selectedKeys: [route.name],
       collapsed: false,
