@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import { reactive } from "vue";
+import { reactive, onBeforeUnmount } from "vue";
 import { get } from "../../../../utils/request.js";
 import * as echarts from "echarts";
 export default {
@@ -80,7 +80,12 @@ export default {
         echartInit();
       }
     };
-    setInterval(getWaveItem, 1000); //每隔1s变化 暂时先变大,方便测试
+    // setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
+    var timer = setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
+    onBeforeUnmount(() => {
+      // console.log("onBeforeUnmount");
+      clearInterval(timer);
+    });
   }
 };
 </script>
