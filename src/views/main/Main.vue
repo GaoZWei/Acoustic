@@ -87,7 +87,8 @@
         </a-menu> -->
 
         <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :default-open-keys="openkeys" @click="handleClick"> -->
-        <a-menu theme="dark" mode="inline" :selectedKeys="[$route.name]" v-model:openKeys="openkeys" @click="handleClick">
+        <!-- <a-menu theme="dark" mode="inline" :selectedKeys="[$route.name]" v-model:openKeys="openkeys" @click="handleClick"> -->
+        <a-menu theme="dark" mode="inline" :selectedKeys="onRoutes" v-model:openKeys="openkeys" @click="handleClick">
           <template v-for="item in menuList" :key="item.key">
             <a-menu-item v-if="!item.children || item.children.length===0" :key="item.key">
               <router-link :to="item.path" v-if="item.path">{{ item.title }}</router-link>
@@ -143,6 +144,20 @@ export default {
     });
     const { selectedKeys, collapsed, openkeys } = toRefs(data);
     return { selectedKeys, collapsed, openkeys, menuList };
+  },
+  computed: {
+    onRoutes() {
+      var path = this.$route.path.replace("/", "");
+      var pathSplit = path.split("/");
+      var pathItem = pathSplit[0];
+      if (pathItem === "voice_detect_result_analysis_detail") {
+        return ["voice_detect_result_analysis"];
+      } else if (pathItem === "vibration_detect_result_analysis_detail") {
+        return ["vibration_detect_result_analysis"];
+      } else {
+        return [path];
+      }
+    }
   },
   // watchEffect() {
   //   console.log(123);

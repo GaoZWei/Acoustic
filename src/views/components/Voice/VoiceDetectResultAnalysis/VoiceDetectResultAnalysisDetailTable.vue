@@ -116,9 +116,9 @@ const useVoiceConfigTableEffect = () => {
           list[i].deviceStatus = "正常";
         }
         if (list[i].deviceWay == 1) {
-          list[i].deviceWay = "CNN";
+          list[i].deviceWay = "MVPDD";
         } else if (list[i].deviceWay == 0) {
-          list[i].deviceWay = "LSTM";
+          list[i].deviceWay = "时域检测方法";
         }
         var timeStamp = list[i].deviceTestTime;
         // var time = new Date(timeStamp * 1000);

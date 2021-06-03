@@ -32,7 +32,8 @@ import Fault_404 from "../views/components/Abnormal/Fault_404.vue"
 import Fault_500 from "../views/components/Abnormal/Fault_500.vue"
 import Success from "../views/components/Result/Success.vue"
 import Fault from "../views/components/Result/Fault.vue"
-export default createRouter({
+
+const router = createRouter({
   history: createWebHashHistory(),
   // history: createWebHistory(),
   routes: [{
@@ -188,7 +189,8 @@ export default createRouter({
           path: "vibration_detect_result_analysis_detail/:deviceCategory/:deviceSno",
           name: "vibration_detect_result_analysis_detail",
           meta: {
-            title: '实时轴承分析'
+            title: '实时轴承分析',
+            parent: 'sub2-sub2_1'
           },
           component: VibrationDetectResultAnalysisDetail
         },
@@ -265,3 +267,11 @@ export default createRouter({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  // document.title = `${to.meta.title} | vue-manage-system`; //没看懂用在哪
+  // console.log(to.name)
+  next();
+});
+
+export default router
