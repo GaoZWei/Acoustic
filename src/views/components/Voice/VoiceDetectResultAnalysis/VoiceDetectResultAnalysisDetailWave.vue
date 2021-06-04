@@ -80,7 +80,7 @@ export default {
         echartInit();
       }
     };
-    // setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
+    setTimeout(getWaveItem, 10);
     var timer = setInterval(getWaveItem, 3000); //每隔1s变化 暂时先变大,方便测试
     onBeforeUnmount(() => {
       // console.log("onBeforeUnmount");

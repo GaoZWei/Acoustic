@@ -20,12 +20,6 @@ const columns = [
     title: "轴承类型",
     dataIndex: "deviceCategory"
   },
-  // {
-  //   title: "描述",
-  //   dataIndex: "deviceDescrition",
-  //   defaultSortOrder: "descend",
-  //   sorter: (a, b) => a.age - b.age
-  // },
   {
     title: "部件描述",
     dataIndex: "deviceDescrition"
@@ -75,71 +69,12 @@ const columns = [
     // sorter: (a, b) => a.status.length - b.status.length,
     // sortDirections: ["descend"]
   },
-  // {
-  //   title: "更新时间",
-  //   dataIndex: "update_time",
-  //   defaultSortOrder: "descend",
-  //   sorter: (a, b) => a.create_time - b.create_time
-  // },
   {
     title: "操作",
     dataIndex: "action",
     slots: { customRender: "action" }
-    // filters: [
-    //   {
-    //     text: "London",
-    //     value: "London"
-    //   },
-    //   {
-    //     text: "New York",
-    //     value: "New York"
-    //   }
-    // ],
-    // filterMultiple: false,
-    // onFilter: (value, record) => record.address.indexOf(value) === 0,
-    // sorter: (a, b) => a.address.length - b.address.length,
-    // sortDirections: ["descend", "ascend"]
   }
 ];
-
-// const data = [
-//   {
-//     key: "1",
-//     component_name: "1号轴承",
-//     component_type: "滚珠轴承",
-//     status: "运行中",
-//     age: 32,
-//     create_time: "2017-10-31  23:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "2",
-//     component_name: "2号轴承",
-//     component_type: "圆柱滚子轴承",
-//     status: "关闭",
-//     age: 42,
-//     create_time: "2017-10-31  23:12:02",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "3",
-//     component_name: "3号轴承",
-//     component_type: "圆柱滚子轴承",
-//     status: "内圈故障",
-//     age: 32,
-//     create_time: "2017-10-31  13:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   },
-//   {
-//     key: "4",
-//     component_name: "4号轴承",
-//     component_type: "滚珠轴承",
-//     status: "外圈故障",
-//     age: 32,
-//     create_time: "2017-10-30  23:12:00",
-//     update_time: "2017-10-31  23:12:00"
-//   }
-// ];
 import { reactive, toRefs, watchEffect } from "vue";
 import { get } from "../../../../utils/request.js";
 import { dateFormatFn } from "../../../../utils/time.js";

@@ -85,7 +85,6 @@
             </a-menu-item>
           </a-sub-menu>
         </a-menu> -->
-
         <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :default-open-keys="openkeys" @click="handleClick"> -->
         <!-- <a-menu theme="dark" mode="inline" :selectedKeys="[$route.name]" v-model:openKeys="openkeys" @click="handleClick"> -->
         <a-menu theme="dark" mode="inline" :selectedKeys="onRoutes" v-model:openKeys="openkeys" @click="handleClick">
@@ -136,7 +135,7 @@ export default {
     //   }
     // );
     var exp = route.meta.parent.split("-");
-    console.log("exp:", exp);
+    // console.log("exp:", exp);
     const data = reactive({
       selectedKeys: [route.name],
       collapsed: false,
@@ -146,6 +145,7 @@ export default {
     return { selectedKeys, collapsed, openkeys, menuList };
   },
   computed: {
+    //左侧导航高亮
     onRoutes() {
       var path = this.$route.path.replace("/", "");
       var pathSplit = path.split("/");
@@ -159,20 +159,6 @@ export default {
       }
     }
   },
-  // watchEffect() {
-  //   console.log(123);
-  // },
-  // data() {
-  //   return {
-  //     menuList
-  //   };
-  // },
-  // updated() {
-  //   console.log(this.$route);
-  //   if (route.name == "voice_component_add") {
-  //     data.selectedKeys[0] = "voice_component_add";
-  //   }
-  // },
   // watch: {
   //   //监听页面路由的切换，将选中的nav动态更新
   //   $route(to) {
