@@ -37,7 +37,7 @@
             <a-col :span="8">
               <a-form-item>
                 <!-- <a-checkbox-group v-model:value="form.type"> -->
-                <a-checkbox-group v-model="type">
+                <a-checkbox-group>
                   <a-checkbox value="1" name="type">
                     自动登录
                   </a-checkbox>
@@ -50,40 +50,66 @@
               <a href="/forget">忘记密码</a>
             </a-col>
           </a-row>
-          <a-button type="primary" @click="handleLogin" block>
-            <!-- <router-link to="/">登录</router-link> -->
-            登录
-          </a-button>
+          <a-button type="primary" @click="handleLogin" block>登录</a-button>
         </a-form>
       </a-col>
       <a-col :span="5"></a-col>
     </a-row>
-    <div id="login_to_register">
-      <a href="/register">注册账户</a>
-    </div>
+    <div id="login_to_register" @click="handleRegisterClick">注册账户</div>
   </div>
 </template>
 <script>
 import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
 import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
+import { get } from "../../../utils/request.js";
+// import { post } from "../../../utils/request.js";
 
 const useLoginEffect = () => {
+  const router = useRouter();
   const data = reactive({
     name: "",
     password: ""
   });
-  const handleLogin = () => {
+  const handleLogin = async () => {
     try {
       const { name, password } = data;
       console.log(name);
       console.log(password);
-      console.log("login");
+      const result = await get(
+        `https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/istesting/${
+          data.deviceCategory
+        }/${data.deviceSno}`
+      );
+      //post的相关代码
+      // const result = await post(
+      //   "https://result.eolinker.com/8WmLt3ib3418debd511d5eee42ae1e659a3307d6da1de4d?uri=/database/istesting/",
+      //   {
+      //     name: data.name,
+      //     password: data.password
+      //   }
+      // );
+      console.log(result);
+      if (result.message == "success") {
+        localStorage.isLogin = true;
+        router.push({ name: "index" });
+      } else {
+        alert("登录失败");
+      }
     } catch (e) {
       console.log(e);
     }
   };
   const { name, password } = toRefs(data);
   return { name, password, handleLogin };
+};
+
+const useRegisterEffect = () => {
+  const router = useRouter();
+  const handleRegisterClick = () => {
+    router.push({ name: "register" });
+  };
+  return { handleRegisterClick };
 };
 
 export default {
@@ -93,24 +119,31 @@ export default {
     LockOutlined
   },
   setup() {
+    var labelCol = { span: 12 };
+    var wrapperCol = { span: 24 };
+    var current = ["mail"];
     const { name, password, handleLogin } = useLoginEffect();
-    return { name, password, handleLogin };
-  },
-  data() {
+    const { handleRegisterClick } = useRegisterEffect();
     return {
-      current: ["mail"],
-      labelCol: { span: 12 },
-      wrapperCol: { span: 24 }
-      // form: {
-      //   name: "",
-      //   password: ""
-      // }
+      name,
+      password,
+      handleLogin,
+      handleRegisterClick,
+      current,
+      labelCol,
+      wrapperCol
     };
   }
-  // methods: {
-  //   onSubmit() {
-  //     console.log("submit!", this.form);
-  //   }
+  // data() {
+  //   return {
+  //     current: ["mail"],
+  //     labelCol: { span: 12 },
+  //     wrapperCol: { span: 24 }
+  //     // form: {
+  //     //   name: "",
+  //     //   password: ""
+  //     // }
+  //   };
   // }
 };
 </script>
